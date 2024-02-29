@@ -1,0 +1,40 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project"
+readme = "README.md"
+dynamic = [ "dependencies", "version",]
+
+[project.scripts]
+project = "project.__main__:main"
+
+[tool.kedro]
+package_name = "project"
+project_name = "Project"
+kedro_init_version = "0.19.2"
+tools = [ "Linting", "Custom Logging", "Kedro Viz",]
+example_pipeline = "True"
+source_dir = "src"
+
+[tool.ruff]
+line-length = 88
+show-fixes = true
+select = [ "F", "W", "E", "I", "UP", "PL", "T201",]
+ignore = [ "E501",]
+
+[project.entry-points."kedro.hooks"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
+
+[tool.setuptools.dynamic.version]
+attr = "project.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false
