@@ -2,20 +2,13 @@ import os
 import importlib.util
 from pathlib import Path
 import toml
-
-class Node:
-    def __init__(self, name, function, inputs):
-        self.name = name
-        self.function = function
-        self.inputs = inputs
-
-    def execute(self):
-        return self.function(*self.inputs)
+from .node import Node
+import inspect
 
 class Pipeline:
-    def __init__(self, requires=None):
+    def __init__(self):
         self.nodes = {}
-        self.requires = requires or ""
+      
 
     def run(self):
         outputs = {}
@@ -27,9 +20,9 @@ class Pipeline:
         self.nodes[name] = Node(name, func, inputs)
 
     def register(self, pipeline_instance):
-        for required_pipeline in pipeline_instance.requires:
-            if required_pipeline not in self.nodes:
-                raise ValueError(f"Pipeline '{required_pipeline}' ist erforderlich, wurde aber nicht gefunden.")
+        for pipline in pipeline_instance:
+            if pipline not in self.nodes:
+                raise ValueError(f"Pipeline '{pipline}' ist erforderlich, wurde aber nicht gefunden.")
         self.nodes.update(pipeline_instance.nodes)
 
 
@@ -37,12 +30,12 @@ class PipelineManager:
     def __init__(self):
         self.pipelines = {}
 
-    def load_pipelines(self):
-        # Bestimme den Basispfad der ausführbaren Python-Datei
-        base_path = Path(os.path.dirname(__file__))
-        
+    def load_pipelines(self, base_path=None):
+        if base_path is None: base_path = Path(os.path.dirname(os.path.abspath(inspect.stack()[1].filename)))
+
         # Lade project.toml-Datei und extrahiere den Pfad und die Namen der Pipelines
-        with open("project.toml", "r") as f:
+        project_toml_path = base_path / "project.toml"
+        with open(project_toml_path, "r") as f:
             project_config = toml.load(f)
             pipeline_folder_name = project_config["project"]["place"]
             pipeline_folder = base_path / pipeline_folder_name
@@ -63,7 +56,7 @@ class PipelineManager:
                             else:
                                 raise ValueError(f"The register function in {pipeline_module_path} must return a Pipeline instance.")
 
-    def run_pipelines_in_order(self, pipeline_order):
+    def run(self, pipeline_order):
         results = {}
         for pipeline_name in pipeline_order:
             if pipeline_name in self.pipelines:
