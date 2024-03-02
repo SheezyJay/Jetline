@@ -38,7 +38,7 @@ def update_pipeline_order(pipeline_name):
                     if not pipeline_order[j].endswith('"') and not pipeline_order[j+1].startswith('"'):
                         pipeline_order[j] += ','
 
-                new_line = f'        PIPELINE_ORDER = [{", ".join(pipeline_order)}]\n'
+                new_line = f'        PIPELINE_ORDER = [{", ".join(pipeline_order)}] if pipes is None else pipes.split(\',\')\n'
                 lines[i] = new_line
                 pipeline_found = True  # Set to True when PIPELINE_ORDER is found
                 break
@@ -86,12 +86,26 @@ def main(pipeline_name):
 
     templates_folder = os.path.join(os.path.dirname(__file__), '..', 'templates')
 
-    shutil.copy(os.path.join(templates_folder, 'pipeline.py'), pipeline_folder)
+    # Copy pipeline.py from the template folder to the pipeline folder
+    pipeline_py_path = os.path.join(pipeline_folder, 'pipeline.py')
+    shutil.copy(os.path.join(templates_folder, 'pipeline.py'), pipeline_py_path)
+
+    # Replace __PIPE__ with the actual pipeline name in pipeline.py
+    with open(pipeline_py_path, 'r') as f:
+        pipeline_content = f.read()
+
+    new_content = pipeline_content.replace('__PIPE__', pipeline_name)
+
+    with open(pipeline_py_path, 'w') as f:
+        f.write(new_content)
+
+    # Copy nodes.py from the template folder to the pipeline folder
     shutil.copy(os.path.join(templates_folder, 'nodes.py'), pipeline_folder)
 
     update_pipeline_order(pipeline_name)
 
     click.echo(f"{Fore.GREEN}New pipeline '{pipeline_name}' created successfully.{Style.RESET_ALL}")
+
 
 if __name__ == '__main__':
     main()

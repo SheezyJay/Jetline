@@ -7,22 +7,19 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 class Data:
-    def __init__(self, name, data, description=None):
+    def __init__(self, name, data):
         """
          Initializes the object with data. This is the constructor for the class. You can override this if you want to do something other than initialize the object with a different name and / or data
          
          Args:
          	 name: The name of the object
          	 data: The data to be stored in the object's data
-         	 description: A description of the
+         	 
         """
         
         self.name = name
         self.data = data
-        self.description = description
-
-
-
+   
 class DataManager:
     _instance = None
 
@@ -70,15 +67,22 @@ class DataManager:
     def auto_add(self, data_classes):
         for data_class in data_classes:
             instance = data_class()
-            self.add(instance.name, instance, instance.description)
+            self.add_jetline_data(instance.name, instance)
 
-    def add(self, name, value, description=None):
-        self.data[name] = {'value': value, 'description': description}
+    def add_jetline_data(self, name, value):
+        self.data[name] = {'value': value}
 
-    def get(self, name):
+    def update_jetline_data(self, name, new_value):
+        if name in self.data:
+            self.data[name]['value'] = new_value
+            print(f"Data object '{name}' successfully updated.")
+        else:
+            print(f"Data object '{name}' not found. Cannot be updated.")
+
+    def get_jetline_data(self, name):
         data_info = self.data.get(name)
         if data_info:
-            return data_info['value'].data
+            return data_info['value'].data if hasattr(data_info['value'], 'data') else data_info['value']
         else:
             print(f"Data object '{name}' not found.")
             print("Contents of the self.data dictionary:")
@@ -86,19 +90,12 @@ class DataManager:
                 print(f"Name: {data_name}, Value: {data_info['value']}")
             return None
 
-    def update(self, name, new_value):
-        if name in self.data:
-            self.data[name]['value'] = new_value
-            print(f"Data object '{name}' successfully updated.")
-        else:
-            print(f"Data object '{name}' not found. Cannot be updated.")
 
-    def list(self):
+    def list_jetline_data(self):
         print("Stored data objects:")
         for name, data_info in self.data.items():
             value_type = type(data_info['value'])
-            description = data_info['description']
-            print(f"{name}: {value_type} - {description}")
+            print(f"{name}: {value_type} ")
 # Beispielklassen für Daten
 """
 class SapData(Data):
@@ -106,7 +103,7 @@ class SapData(Data):
         super().__init__(
             name="SAP-Daten",
             data="asd",
-            description="Daten aus dem SAP-System"
+           
         )
 
 class DrcData(Data):
@@ -114,7 +111,7 @@ class DrcData(Data):
         super().__init__(
             name="DRC-Daten",
             data=None,
-            description="Daten aus dem DRC-System"
+        
         )
 
 # Beispielverwendung des DataManager

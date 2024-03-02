@@ -27,7 +27,7 @@ install_requires = [
 
 setup(
     name='jetline',
-    version='0.0.30',
+    version='0.0.48',
     description='Automated Pipeline Builder',
     url='https://github.com/your_username/jetline',
     author='Johannes Kanthak',
@@ -41,8 +41,10 @@ setup(
     entry_points={
         'console_scripts': [
             'jetline-setup = jetline.commands.installer:main',
-            'jetline-info = jetline.commands.info:main',
-            'jetline-create-pipe = jetline.commands.create_pipe:main'
+            'jetline = jetline.commands.info:main',
+            'jetline-create-pipe = jetline.commands.create_pipe:main',
+            'jetline-analyze = jetline.commands.analyze_project:main',
+            'jetline-run = jetline.commands.run_pipeline:main [args]',
         ],
     },
 )

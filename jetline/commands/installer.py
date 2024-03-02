@@ -6,16 +6,16 @@ from pathlib import Path
 from colorama import Fore, Style
 
 @click.command()
-@click.option('--project-name', prompt=f'{Fore.YELLOW}Please enter the project name (optional){Style.RESET_ALL}', default="project", help='Name of the project')
-@click.option('--pipeline-name', prompt=f'{Fore.YELLOW}Please enter the pipeline folder name (optional){Style.RESET_ALL}', default='pipelines', help='Name of the pipeline Folder')
+@click.option('--project-name', prompt=f'{Fore.CYAN}? Project name:{Style.RESET_ALL}', default="project", help='Name of the project')
+@click.option('--pipeline-name', prompt=f'{Fore.CYAN}? Pipeline folder name:{Style.RESET_ALL}', default='pipelines', help='Name of the pipeline Folder')
 def installer(project_name, pipeline_name):
-    click.echo(f"{Fore.BLUE}Welcome to jetline, a powerful, lightweight pipeline builder!{Style.RESET_ALL}")
-
     # Bestimme den Pfad des Projektverzeichnisses
     project_folder = os.path.abspath(project_name)
 
     # Erstelle das Projektverzeichnis
     os.makedirs(project_folder, exist_ok=True)
+
+    click.echo(click.style("\n🚀 Setting up your project...", fg='cyan', bold=True))
 
     # Erstelle die project.toml-Datei
     project_toml = {
@@ -61,16 +61,33 @@ def installer(project_name, pipeline_name):
 
     # Kopiere die Dateien pipeline.py und example_node.py in den Unterordner "example_pipeline"
     shutil.copy(os.path.join(templates_folder, 'pipeline.py'), example_pipeline_folder)
-    shutil.copy(os.path.join(templates_folder, 'nodes.py'), example_pipeline_folder)
+    def replace_text_in_file(file_path, old_text, new_text):
+        with open(file_path, 'r') as file:
+            file_content = file.read()
+        
+        file_content = file_content.replace(old_text, new_text)
+        
+        with open(file_path, 'w') as file:
+            file.write(file_content)
 
-    click.echo(f"\n")
-    click.echo(f"{Fore.GREEN}Project setup complete. Project directory created: {project_folder}{Style.RESET_ALL}")
-    click.echo(f"{Fore.BLUE}Run cd {project_name} There is an example pipeline for you :). Run jetline-new-pipe to create a new pipeline")
+    # Ersetze __PIPELINE__ durch example_pipeline
+    replace_text_in_file(os.path.join(example_pipeline_folder, 'pipeline.py'), '__PIPE__', 'example_pipeline')
+
+    shutil.copy(os.path.join(templates_folder, 'nodes.py'), example_pipeline_folder)
+    
+
+    click.echo(click.style("✅ Project setup complete at ", fg='green', bold=True) + click.style(project_folder, fg='white'))
+
+    click.echo(click.style(f"\nRun {Fore.YELLOW}cd {project_name}{Style.RESET_ALL} to navigate to the project directory.", fg='cyan'))
 
 def main():
-    click.echo(f"{Fore.BLUE}Welcome to jetline, a powerful, lightweight pipeline builder!{Style.RESET_ALL}")
-    click.echo(f"\n")
+    click.echo(f"\n{Fore.BLUE}░▀▀█░█▀▀░▀█▀░█░░░▀█▀░█▀█░█▀▀{Style.RESET_ALL}")
+    click.echo(f"{Fore.BLUE}░░░█░█▀▀░░█░░█░░░░█░░█░█░█▀▀{Style.RESET_ALL}")
+    click.echo(f"{Fore.BLUE}░▀▀░░▀▀▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀{Style.RESET_ALL}")
+    
+    click.echo(f"\n... a powerful, lightweight pipeline builder! by {Fore.GREEN}Kdc-Solutions{Style.RESET_ALL}\n")
+    click.echo(f"\033[90;4mInstallation Guide:\033[0m")
     installer()
-
 if __name__ == '__main__':
     main()
+

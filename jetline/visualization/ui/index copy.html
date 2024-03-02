@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Daten anzeigen</title>
+</head>
+<body>
+    <h1>API Daten anzeigen</h1>
+    <div id="data-container">
+        <!-- Hier werden die Daten angezeigt -->
+    </div>
+
+    <script>
+        // Funktion zum Abrufen und Anzeigen der Daten
+        async function displayData() {
+            try {
+                const response = await fetch('/get_pipe_data');
+                if (!response.ok) {
+                    throw new Error('Fehler beim Abrufen der Daten');
+                }
+                const data = await response.json();
+
+                // Daten im HTML anzeigen
+                const dataContainer = document.getElementById('data-container');
+                dataContainer.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                console.error('Fehler:', error);
+            }
+        }
+
+        // API-Aufruf und Anzeige beim Laden der Seite
+        document.addEventListener('DOMContentLoaded', () => {
+            displayData();
+        });
+    </script>
+</body>
+</html>

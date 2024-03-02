@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 import os
-
+import json
 app = FastAPI()
 ui_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ui')
 
@@ -10,6 +10,17 @@ ui_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ui')
 @app.get("/")
 async def read_index():
     return FileResponse(ui_directory+"/index.html")
+
+from pathlib import Path
+
+@app.get("/get_pipe_data")
+async def get_pipe_data():
+    json_path = Path(ui_directory) / 'info.json'
+    with open(json_path, 'r') as f:
+        pipeline_data = json.load(f)
+        
+    return pipeline_data
+
 
 
 # Mounten Sie das Verzeichnis 'ui' als statische Dateien

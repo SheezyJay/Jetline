@@ -1,17 +1,27 @@
-# Beispiel für Nodes, die auf den DataManager zugreifen
+def node_function_1(data):
+    """
+    An example function that processes data and returns a modified version.
 
-# Funktion für Node 1
-def node_function_1(data, multiplier, data_manager) -> int:
-    # Zugriff auf Daten aus dem DataManager
-    some_data = data_manager.get("Name")
-    
-    # Verarbeitung der Daten und Rückgabe des Ergebnisses
-    result = data * multiplier * some_data
-    return result
+    Args:
+        data: The input data to be processed.
 
-# Funktion für Node 2
-def node_function_2(data, offset) -> int:
-    # Zugriff auf Daten aus dem DataManager
-   
-    result = data + offset
-    return result
+    Returns:
+        str: The processed data.
+    """
+    print("Input Data:", data)
+    processed_data = data + "asasdasdd"
+    print("Processed Data:", processed_data)
+    return processed_data
+
+def node_function_2(data):
+    """
+    An example function that returns the input data unchanged.
+
+    Args:
+        data: The input data.
+
+    Returns:
+        str: The input data.
+    """
+    print("Input Data:", data)
+    return data

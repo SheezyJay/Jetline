@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: jetline
+Version: 0.0.48
+Summary: Automated Pipeline Builder
+Home-page: https://github.com/your_username/jetline
+Author: Johannes Kanthak
+Author-email: johannes.kanthak@kdc-solutions.de
+License: MIT
+Keywords: pipeline automation
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: click==8.1.7
+Requires-Dist: colorama==0.4.6
+Requires-Dist: toml==0.10.2
+Requires-Dist: pandas==2.2.0
+Requires-Dist: openpyxl==3.1.2
+Requires-Dist: coloredlogs==15.0.1
+Requires-Dist: fastapi==0.110.0

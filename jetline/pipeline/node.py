@@ -1,23 +1,32 @@
 class Node:
-    def __init__(self, name, function, inputs):
+    def __init__(self, name, function, inputs, outputs=None):
         """
-         Initializes the Function object. This is the method that should be called by the user to initialize the Function object
-         
-         Args:
-         	 name: The name of the function
-         	 function: The function that will be called when the function is called
-         	 inputs: The inputs that will be passed to the function
+        Args:
+            name: Der Name der Funktion.
+            function: Die Funktion, die aufgerufen wird.
+            inputs: Die Inputs, die der Funktion übergeben werden.
+            outputs: Eine Liste von Namen der Outputs, die im DataManager gespeichert werden sollen.
         """
         self.name = name
         self.function = function
         self.inputs = inputs
+        self.outputs = outputs
 
-    def execute(self):
+    def execute(self, data_manager):
         """
-         Execute the function with the inputs. This is the method that will be called by the : class : ` Function ` when it is called.
-         
-         
-         Returns: 
-         	 The result of the function ( if any ) or None if there was an error ( in which case the error will be logged
+        Führt die Funktion mit den Inputs aus und speichert jeden Output im DataManager, falls Output-Namen angegeben wurden.
+        
+        Args:
+            data_manager: Eine Instanz von DataManager, um Outputs zu speichern.
         """
-        return self.function(*self.inputs)
+        resolved_inputs = [data_manager.get_jetline_data(name) if isinstance(name, str) else name for name in self.inputs]
+        result = self.function(*resolved_inputs)
+        
+        if self.outputs:
+            if isinstance(self.outputs, list):
+                for output_name in self.outputs:
+                    data_manager.update_jetline_data(output_name, result)
+            else:
+                raise ValueError("Invalid type for `outputs`. `outputs` must be a list of hashable types.")
+
+        return result
