@@ -2,8 +2,7 @@ import os
 import importlib.util
 import inspect
 import toml
-import logging
-logging.basicConfig(level=logging.DEBUG)
+from jetline.logging import logger
 
 
 class Data:
@@ -56,10 +55,10 @@ class DataManager:
                                 data_classes.append(obj)
 
                         for data_class in data_classes:
-                            logging.info(f"Found: {data_class.__name__}, Description: {data_class.__doc__}")
+                            logger.info(f"Found: {data_class.__name__}, Description: {data_class.__doc__}")
 
                     except Exception as e:
-                        logging.error(f"Error loading data classes from file {data_file}: {e}")
+                        logger.error(f"Error loading data classes from file {data_file}: {e}")
                         exit(1)
 
         return data_classes

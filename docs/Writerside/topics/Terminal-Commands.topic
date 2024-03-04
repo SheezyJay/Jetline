@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Terminal Commands" id="Terminal-Commands">
+
+    <chapter title="Commands Introduction" id="jetline-commands-intro">
+        <p id="intro-para">
+            Jetline includes a variety of commands for maintaining and operating your project.
+        </p>
+        <note><p>Before using any commands, make sure you've installed Jetline by running: <code>pip install jetline</code></p></note>
+
+    </chapter>
+
+    <chapter title="Command: jetline" id="command-jetline">
+        <p>The <code>jetline</code> command displays information about your project.</p>
+        <code-block lang="bash">jetline</code-block>
+    </chapter>
+
+    <chapter title="Command: jetline-setup" id="command-jetline-setup">
+        <p>The <code>jetline-setup</code> command is used to create a new project.
+            You can optionally specify the project name and pipeline folder name.</p>
+        <code-block lang="bash">jetline-setup --project-name [project_name] --pipeline-name [pipeline_name]</code-block>
+    </chapter>
+
+    <chapter title="Command: jetline-create-pipe" id="command-jetline-create-pipe">
+        <p>
+            The <code>jetline-create-pipe</code> command allows you to create a new pipeline in your project.
+            You can specify the name of the new pipeline using the <code>--pipeline-name</code> argument.
+        </p>
+        <code-block lang="bash">jetline-create-pipe --pipeline-name [pipeline_name]</code-block>
+    </chapter>
+
+    <chapter title="Command: jetline-analyze" id="command-jetline-analyze">
+        <p>
+            The <code>jetline-analyze</code> command is useful for conducting an analysis of your project.
+            It creates a JSON file which contains crucial information about the pipelines and nodes.
+            It might check for things such as static code issues or performance problems.
+        </p>
+        <p>
+            The generated JSON file is especially useful for visualizing the pipelines.
+        </p>
+        <code-block lang="bash">jetline-analyze</code-block>
+    </chapter>
+
+    <chapter title="Command: jetline-run" id="command-jetline-run">
+        <p>
+            The <code>jetline-run</code> command facilitates the execution of your pipelines.
+            The <code>[args]</code> are optional and can be used to run individual pipelines.
+        </p>
+        <p>
+            For example, to run a pipeline named 'example_pipe', you would use the command: <code>jetline-run example_pipe</code>.
+        </p>
+        <p>
+            If you need to run multiple pipelines, you can separate them with a comma.
+            For instance, to run 'example_pipe' and 'example_pipe2', the command would be: <code>jetline-run example_pipe,example_pipe2</code>.
+        </p>
+        <code-block lang="bash">jetline-run [args]</code-block>
+    </chapter>
+
+    <chapter title="Command: jetline-to-exe" id="command-jetline-to-exe">
+        <p>The <code>jetline-to-exe</code> command is intended to transform your project into one .py-file, that you can easily compile into an exe.</p>
+        <code-block lang="bash">jetline-to-exe</code-block>
+    </chapter>
+
+    <chapter title="Notes and Tips" id="notes-and-tips">
+        <note><p>Don't forget to replace the placeholders like <code>[project_name]</code>, <code>[pipeline_name]</code>, <code>[pipeline_name]</code> and <code>[args]</code> with your actual values while using the commands.</p></note>
+        <warning><p>For further usage information on any individual command, you can always use the help flag <code>-h</code> or <code>--help</code> following any command to get more details.</p></warning>
+    </chapter>
+
+</topic>

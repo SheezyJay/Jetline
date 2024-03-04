@@ -298,7 +298,7 @@ def _find_classes():
 
 @click.command()
 @click.argument('output_name', default='output', required=False)
-def build_exe(output_name):
+def main(output_name):
     """
     Erstellt eine ausführbare Datei aus der Hauptdatei (main.py) und extrahiert die PIPELINE_ORDER-Liste.
 
@@ -339,4 +339,4 @@ def build_exe(output_name):
 
 
 if __name__ == "__main__":
-    build_exe()
+    main()

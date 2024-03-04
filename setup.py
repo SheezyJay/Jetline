@@ -41,11 +41,12 @@ setup(
     install_requires=install_requires,
     entry_points={
         'console_scripts': [
-            'jetline-setup = jetline.commands.installer:main',
             'jetline = jetline.commands.info:main',
+            'jetline-setup = jetline.commands.installer:main',
             'jetline-create-pipe = jetline.commands.create_pipe:main',
             'jetline-analyze = jetline.commands.analyze_project:main',
             'jetline-run = jetline.commands.run_pipeline:main [args]',
+            'jetline-to-exe = jetline.commands.to_exe:main'
         ],
     },
 )
