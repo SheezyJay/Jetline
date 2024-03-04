@@ -42,7 +42,7 @@ def load_file_to_dataframe(file_path, file_type='csv', delimiter=','):
         return None
 
 
-#later add db connection
+
 """
 import logging
 import psycopg2

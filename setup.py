@@ -22,12 +22,13 @@ install_requires = [
     'openpyxl==3.1.2',
     'coloredlogs==15.0.1',
     'fastapi==0.110.0',
+    
 
 ]
 
 setup(
     name='jetline',
-    version='0.0.48',
+    version='0.0.49',
     description='Automated Pipeline Builder',
     url='https://github.com/your_username/jetline',
     author='Johannes Kanthak',
