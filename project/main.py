@@ -14,7 +14,7 @@ def run_pipelines(pipes=None):
         pipeline_manager = PipelineManager()
 
         # Define the order of pipelines by folder name
-        PIPELINE_ORDER = ["example_pipeline"] if pipes is None else pipes.split(',')
+        PIPELINE_ORDER = ["example_pipeline", "n", "aa"] if pipes is None else pipes.split(',')
 
         # Execute pipelines
         pipeline_manager.run(PIPELINE_ORDER)

@@ -100,3 +100,9 @@
 [32m2024-03-04 21:04:34[0m[90m - [0m[37mjetline.logging[0m[90m - [0m[1;30m[34mINFO[0m[0m[90m - [0m[34mFound: YourDataClass, Description: None[0m[90m - [0m[37mdata.py[0m:[37m58[0m
 [32m2024-03-04 21:04:37[0m[90m - [0m[37mjetline.logging[0m[90m - [0m[1;30m[34mINFO[0m[0m[90m - [0m[34mPipeline 'example_pipeline' executed successfully.[0m[90m - [0m[37mpipeline.py[0m:[37m123[0m
 [32m2024-03-04 21:04:37[0m[90m - [0m[37mjetline.logging[0m[90m - [0m[1;30m[34mINFO[0m[0m[90m - [0m[34mAll Pipelines ran successfully.[0m[90m - [0m[37mpipeline.py[0m:[37m125[0m
+[32m2024-03-04 21:10:02[0m[90m - [0m[37mjetline.logging[0m[90m - [0m[1;30m[34mINFO[0m[0m[90m - [0m[34mFound: YourDataClass, Description: None[0m[90m - [0m[37mdata.py[0m:[37m58[0m
+[32m2024-03-04 21:10:04[0m[90m - [0m[37mjetline.logging[0m[90m - [0m[1;30m[34mINFO[0m[0m[90m - [0m[34mPipeline 'example_pipeline' executed successfully.[0m[90m - [0m[37mpipeline.py[0m:[37m123[0m
+[32m2024-03-04 21:10:04[0m[90m - [0m[37mjetline.logging[0m[90m - [0m[1;30m[34mINFO[0m[0m[90m - [0m[34mAll Pipelines ran successfully.[0m[90m - [0m[37mpipeline.py[0m:[37m125[0m
+[32m2024-03-04 21:10:17[0m[90m - [0m[37mjetline.logging[0m[90m - [0m[1;30m[34mINFO[0m[0m[90m - [0m[34mFound: YourDataClass, Description: None[0m[90m - [0m[37mdata.py[0m:[37m58[0m
+[32m2024-03-04 21:10:20[0m[90m - [0m[37mjetline.logging[0m[90m - [0m[1;30m[34mINFO[0m[0m[90m - [0m[34mPipeline 'example_pipeline' executed successfully.[0m[90m - [0m[37mpipeline.py[0m:[37m123[0m
+[32m2024-03-04 21:10:20[0m[90m - [0m[37mjetline.logging[0m[90m - [0m[1;30m[34mINFO[0m[0m[90m - [0m[34mAll Pipelines ran successfully.[0m[90m - [0m[37mpipeline.py[0m:[37m125[0m
