@@ -1,7 +1,14 @@
 import re
 import os
+import click
+from colorama import Fore, Style
+def echo_jetline():
 
-
+    click.echo(f"\n")
+    click.echo(f"{Fore.BLUE}░▀▀█░█▀▀░▀█▀░█░░░▀█▀░█▀█░█▀▀{Style.RESET_ALL}")
+    click.echo(f"{Fore.BLUE}░░░█░█▀▀░░█░░█░░░░█░░█░█░█▀▀{Style.RESET_ALL}")
+    click.echo(f"{Fore.BLUE}░▀▀░░▀▀▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀{Style.RESET_ALL}")
+    click.echo(f"\n... a powerful, lightweight pipeline builder! by {Fore.GREEN}Kdc-Solutions{Style.RESET_ALL}\n")
 def _extract_pipeline_order(current_directory):
     """
     Extracts the PIPELINE_ORDER list from the content of the main file.

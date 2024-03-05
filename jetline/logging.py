@@ -9,9 +9,6 @@ class CustomFormatter(coloredlogs.ColoredFormatter):
     """
     CustomFormatter extends coloredlogs.ColoredFormatter to customize the log format.
 
-    Attributes:
-        None
-
     Methods:
         format(self, record): Formats the log record.
 
