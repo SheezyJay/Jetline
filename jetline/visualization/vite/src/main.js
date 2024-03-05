@@ -6,51 +6,140 @@ import { createArrow } from './components/arrow';
 
 const appContainer = document.querySelector('#app');
 
-// Erstelle den ersten Container für die Blöcke
-const container1 = createContainer('blockContainer1');
+var json = {
+  "ProjectName": "project",
+  "DataClasses": [
+      {
+          "name": "Name",
+          "description": "",
+          "code": "class YourDataClass(Data):\n\n    def __init__(self):\n        super().__init__(name='Name', data=self.get_data())\n\n    @staticmethod\n    def get_data():\n        file = choose_file()\n        return file"
+      }
+  ],
+  "Pipelines": {
+      "example_pipeline": {
+          "RegisterFunction": {
+              "Function": "def register(data_manager) -> Pipeline:\n    return Pipeline(nodes=[\n        Node(name='node1', function=func.node_function_1, inputs=[\"Name\",\"asd\"], outputs=[\"Name\"]),\n        Node(name='node2', function=func.node_function_2,inputs=[\"Name\"]),",
+              "Description": null
+          },
+          "Nodes": [
+              {
+                  "name": "node_function_1",
+                  "function": "def node_function_1(data):\n    \"\"\"\n    An example function that processes data and returns a modified version.\n\n    Args:\n        data: The input data to be processed.\n\n    Returns:\n        str: The processed data.\n    \"\"\"\n    print('Input Data:', data)\n    processed_data = data + 'asasdasdd'\n    print('Processed Data:', processed_data)\n    return processed_data",
+                  "description": "An example function that processes data and returns a modified version.\n\nArgs:\n    data: The input data to be processed.\n\nReturns:\n    str: The processed data.",
+                  "inputs": [
+                      "Name",
+                      "asd"
+                  ],
+                  "outputs": [
+                      "Name"
+                  ]
+              },
+              {
+                  "name": "node_function_2",
+                  "function": "def node_function_2(data):\n    \"\"\"\n    An example function that returns the input data unchanged.\n\n    Args:\n        data: The input data.\n\n    Returns:\n        str: The input data.\n    \"\"\"\n    print('Input Data:', data)\n    return data",
+                  "description": "An example function that returns the input data unchanged.\n\nArgs:\n    data: The input data.\n\nReturns:\n    str: The input data.",
+                  "inputs": [
+                      "Name"
+                  ],
+                  "outputs": ""
+              }
+          ]
+      },
+      "aa": {
+          "RegisterFunction": {
+              "Function": "def register(data_manager) -> Pipeline:\n    return Pipeline(nodes=[\n        Node(name='node1', function=func.node_function_1, inputs=[\"Name\"], outputs=[\"Name\"]),\n        Node(name='node2', function=func.node_function_2,inputs=[\"Name\"]),",
+              "Description": null
+          },
+          "Nodes": [
+              {
+                  "name": "node_function_1",
+                  "function": "def node_function_1(data):\n    \"\"\"\n    An example function that processes data and returns a modified version.\n\n    Args:\n        data: The input data to be processed.\n\n    Returns:\n        str: The processed data.\n    \"\"\"\n    print('Input Data:', data)\n    processed_data = data + 'asasdasdd'\n    print('Processed Data:', processed_data)\n    return processed_data",
+                  "description": "An example function that processes data and returns a modified version.\n\nArgs:\n    data: The input data to be processed.\n\nReturns:\n    str: The processed data.",
+                  "inputs": [
+                      "Name"
+                  ],
+                  "outputs": [
+                      "Name"
+                  ]
+              },
+              {
+                  "name": "node_function_2",
+                  "function": "def node_function_2(data):\n    \"\"\"\n    An example function that returns the input data unchanged.\n\n    Args:\n        data: The input data.\n\n    Returns:\n        str: The input data.\n    \"\"\"\n    print('Input Data:', data)\n    return data",
+                  "description": "An example function that returns the input data unchanged.\n\nArgs:\n    data: The input data.\n\nReturns:\n    str: The input data.",
+                  "inputs": [
+                      "Name"
+                  ],
+                  "outputs": ""
+              }
+          ]
+      },
+      "n": {
+          "RegisterFunction": {
+              "Function": "def register(data_manager) -> Pipeline:\n    return Pipeline(nodes=[\n        Node(name='node1', function=func.node_function_1, inputs=[\"Name\"], outputs=[\"Name\"]),\n        Node(name='node2', function=func.node_function_2,inputs=[\"Name\"]),",
+              "Description": null
+          },
+          "Nodes": [
+              {
+                  "name": "node_function_1",
+                  "function": "def node_function_1(data):\n    \"\"\"\n    An example function that processes data and returns a modified version.\n\n    Args:\n        data: The input data to be processed.\n\n    Returns:\n        str: The processed data.\n    \"\"\"\n    print('Input Data:', data)\n    processed_data = data + 'asasdasdd'\n    print('Processed Data:', processed_data)\n    return processed_data",
+                  "description": "An example function that processes data and returns a modified version.\n\nArgs:\n    data: The input data to be processed.\n\nReturns:\n    str: The processed data.",
+                  "inputs": [
+                      "Name"
+                  ],
+                  "outputs": [
+                      "Name"
+                  ]
+              },
+              {
+                  "name": "node_function_2",
+                  "function": "def node_function_2(data):\n    \"\"\"\n    An example function that returns the input data unchanged.\n\n    Args:\n        data: The input data.\n\n    Returns:\n        str: The input data.\n    \"\"\"\n    print('Input Data:', data)\n    return data",
+                  "description": "An example function that returns the input data unchanged.\n\nArgs:\n    data: The input data.\n\nReturns:\n    str: The input data.",
+                  "inputs": [
+                      "Name"
+                  ],
+                  "outputs": ""
+              }
+          ]
+      }
+  }
+}
 
-// Erstelle den zweiten Container für die Blöcke
-const container2 = createContainer('blockContainer2');
-
-// Erstelle die Blöcke und füge sie dem ersten Container hinzu
-const options1 = {
-  content: 'Inhalt für Daten',
-  type: 'data'
-};
-const myBlock1 = createBlock('customBlock1', options1);
-const myBlock3 = createBlock('customBlock3', options1);
-appendToNodesContainer(container1,myBlock1);
-appendToNodesContainer(container1,myBlock3);
-
-// Erstelle die Blöcke und füge sie dem zweiten Container hinzu
-const options2 = {
-  content: 'Inhalt für Funktion',
-  type: 'function'
-};
-const myBlock2 = createBlock('customBlock2', options2);
-container2.appendChild(myBlock2);
-
-// Füge den ersten Container dem App-Container hinzu
-appContainer.appendChild(container1);
 
 
-// Füge den zweiten Container dem App-Container hinzu
-appContainer.appendChild(container2);
-createArrow("#customBlock1","#customBlock2")
 
-createArrow("#customBlock3","#customBlock2")
+// add raw data
 
+json.DataClasses.forEach(dataClass => {
 
-// Wähle das Sidebar-Element aus
-const sidebar = document.getElementById('sidebar');
-
-// Wähle das Hauptinhaltselement aus
-const mainContent = document.getElementById('app');
-
-// Füge einen Event-Listener hinzu, um die Sidebar zu öffnen, wenn auf ein bestimmtes Element geklickt wird
-const openSidebarButton = document.getElementById('button');
-openSidebarButton.addEventListener('click', function() {
-    sidebar.classList.toggle('open');
-    mainContent.classList.toggle('open');
+  var container = createContainer(`${dataClass.name}`);
+  console.log(container)
+  var blockOptions = {
+    content: 'Raw Data', 
+    type: 'data'
+  };
+  var block = createBlock(dataClass.name, blockOptions);
+  appendToNodesContainer(container, block);
+  appContainer.appendChild(container);
 });
+
+
+Object.keys(json.Pipelines).forEach(pipelineName => {
+  const pipeline = json.Pipelines[pipelineName];
+
+
+  const pipelineContainer = createContainer(`${pipelineName}`);
+  pipeline.Nodes.forEach(node => {
+    const nodeOptions = {
+      content: node.name,
+      type: 'function' 
+    };
+    const nodeBlock = createBlock(node.name, nodeOptions);
+    appendToNodesContainer(pipelineContainer, nodeBlock);
+  });
+
+  
+  appContainer.appendChild(pipelineContainer);
+});
+
+
 

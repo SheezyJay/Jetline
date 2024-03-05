@@ -34,12 +34,54 @@
     font-size: 3.2em;
     line-height: 1.1;
   }
+
+  /* Sidebar */
+  .sidebar {
+    height: 100%; 
+    width: 75px;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    background-color: #18191b;
+  }
   
+  .sidebar ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0; 
+  }
+  
+  .sidebar ul li {
+    text-align: center; 
+  }
+  
+  .sidebar ul li a {
+    display: block; 
+    padding: 10px; 
+    color: white; 
+    text-decoration: none; 
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #d2d2d23d;
+  }
+  
+  .sidebar .logo img {
+    width: 50px; 
+    height: auto; 
+    margin: 10px auto; 
+    display: block; 
+  }
+
+  /* APP */
   #app {
+    padding: 20px;
+    width: 100%;
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
+    
   }
   
   
@@ -63,6 +105,7 @@
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
+    margin: 20px 15px;
   }
   
   .block:hover {
@@ -83,10 +126,11 @@
       background-color: #f9f9f9;
     }
   }
+ 
 
-
-
-.pipe-container {
+  
+.pipe-container{
+  width: 100%;
   display: flex;
   gap: 20px;
   align-items: center;
@@ -96,38 +140,18 @@
 .pipe-container:hover {
   background: #242526;
 }
-.pipe-title {
-  color: #d9dcde;
-  
-}
 
 .nodes {
-  margin: 10px
- 
- 
+  margin: 0 auto;
 }
 
 
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -300px; /* Die Sidebar ist standardmäßig geschlossen */
-  width: 300px;
-  height: 100%;
-  background-color: #f0f0f0;
-  transition: right 0.3s ease; /* Füge eine Transition hinzu, um die Sidebar sanft zu öffnen/schließen */
-}
-
-#main-content {
-  margin-right: 0;
-  transition: margin-right 0.3s ease; /* Füge eine Transition hinzu, um den Hauptinhalt zu verschieben, wenn die Sidebar geöffnet wird */
-}
-
-.sidebar.open {
-  right: 0; /* Öffne die Sidebar */
-}
-
-#main-content.open {
-  margin-right: 300px; /* Verschiebe den Hauptinhalt, um Platz für die geöffnete Sidebar zu machen */
+.pipe-title {
+  color: #b0b0b0cf;
+  font-size: 15px;
+  text-align: left;
+  min-width: 150px; /* Stellt sicher, dass der Titelbereich mindestens 20px hoch ist */
+  display: flex;
+  align-items: center; /* Zentriert den Text vertikal, falls der Bereich höher als der Text ist */
+  padding: 10px 0; /* Fügt oben und unten Padding hinzu, um den Bereich aufzufüllen, falls nötig. Adjustieren Sie diesen Wert nach Bedarf */
 }

@@ -1,23 +1,24 @@
 export function createContainer(id) {
-  const container = document.createElement('div');
-  container.setAttribute('id', id);
-  container.className = 'pipe-container';
+  
+    const container = document.createElement('div');
+    container.setAttribute('id', id);
+    container.className = 'pipe-container';
 
-  const infoTitleElement = document.createElement('h2');
-  infoTitleElement.textContent = id;
-  infoTitleElement.classList.add('pipe-title');
+    const infoTitleElement = document.createElement('h2');
+    infoTitleElement.textContent = id;
+    infoTitleElement.classList.add('pipe-title');
 
-  container.appendChild(infoTitleElement);
+    container.appendChild(infoTitleElement);
 
-  const nodesDiv = document.createElement('div');
-  nodesDiv.classList.add('nodes');
+    const nodesDiv = document.createElement('div');
+    nodesDiv.classList.add('nodes');
 
-  container.appendChild(nodesDiv);
+    container.appendChild(nodesDiv);
 
-  return container;
+    return container;
 }
 
 export function appendToNodesContainer(container, element) {
-  const nodesContainer = container.querySelector('.nodes');
-  nodesContainer.appendChild(element);
+    const nodesContainer = container.querySelector('.nodes');
+    nodesContainer.appendChild(element);
 }

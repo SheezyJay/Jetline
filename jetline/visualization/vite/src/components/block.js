@@ -17,11 +17,11 @@ export function createBlock(id, options) {
 
   switch (options.type) {
     case 'function':
-      block.innerHTML = `<i class="bi bi-database"></i> ${options.content}`;
+      block.innerHTML = `<i class="bi bi-braces"></i> ${options.content}`;
       block.style.borderRadius =  '08px';
       break;
     case 'data':
-      block.innerHTML = `<i class="bi bi-braces"></i> ${options.content}`;
+      block.innerHTML = `<i class="bi bi-database"></i> ${options.content}`;
       block.style.borderRadius =  '20px';
       break;
     default:
