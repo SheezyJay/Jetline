@@ -1,18 +1,33 @@
-import '../assets/css/style.css'
+import '../assets/css/style.css';
 
 /**
  * Erstellt ein klickbares Div-Element mit gegebenen Optionen und exportiert es als Modul.
  * @param {string} id Die ID für das Div-Element.
- * @param {string} icon HTML-String oder Text für das Icon.
- * @param {string} borderRadius CSS-Wert für die Border-Rundung.
+ * @param {Object} options Die Optionen für das Block-Element.
+ * @param {string} options.content Der Inhalt für das Div-Element.
+ * @param {string} options.type Der Typ des Icons ('function' oder 'data').
  * @returns {HTMLElement} Das erstellte Block-Element.
  */
-export function createBlock(id, icon, borderRadius) {
+export function createBlock(id, options) {
   const block = document.createElement('div');
   block.setAttribute('id', id);
   block.className = 'block';
-  block.style.borderRadius = borderRadius;
-  block.innerHTML = `${icon}`;
+ 
+   
+
+  switch (options.type) {
+    case 'function':
+      block.innerHTML = `<i class="bi bi-database"></i> ${options.content}`;
+      block.style.borderRadius =  '08px';
+      break;
+    case 'data':
+      block.innerHTML = `<i class="bi bi-braces"></i> ${options.content}`;
+      block.style.borderRadius =  '20px';
+      break;
+    default:
+      throw new Error('Ungültiger Icon-Typ');
+  }
+
   block.tabIndex = 0; // Macht es fokussierbar
 
   block.addEventListener('click', () => {
