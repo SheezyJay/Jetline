@@ -9,7 +9,7 @@ ui_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ui')
 # Route to serve the index.html file
 @app.get("/")
 async def read_index():
-    return FileResponse(ui_directory+"/index.html")
+    return FileResponse(ui_directory+"/app.html")
 
 from pathlib import Path
 

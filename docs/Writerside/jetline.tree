@@ -4,8 +4,8 @@
 
 <instance-profile id="jetline"
                  name="jetline"
-                 start-page="Terminal-Commands.topic">
+                 start-page="Overview.topic">
 
-    <toc-element topic="Terminal-Commands.topic"/>
     <toc-element topic="Overview.topic"/>
+    <toc-element topic="Terminal-Commands.topic"/>
 </instance-profile>

@@ -5,26 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c994d71d-674b-4f25-a894-e5704facbc5c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Writerside/c.list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Writerside/cfg/buildprofiles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Writerside/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Writerside/jetline.tree" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Writerside/topics/Commands.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Writerside/topics/Overview.topic" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Writerside/topics/Terminal-Commands.topic" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Writerside/v.list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Writerside/writerside.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jetline/commands/to_exe.py" beforeDir="false" afterPath="$PROJECT_DIR$/../jetline/commands/to_exe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jetline/templates/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../jetline/templates/data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jetline/commands/_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/../jetline/commands/_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jetline/commands/analyze_project.py" beforeDir="false" afterPath="$PROJECT_DIR$/../jetline/commands/analyze_project.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="4" />
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Downloads" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -103,10 +96,19 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Writerside.Web Archive (jetline).executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/WTS85711/Music/Projekte/Piplines/pipelinenode/docs",
+    "last_opened_file_path": "C:/Users/WTS85711/Downloads",
     "writerside.last.selected.productdocs": "j"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Web Archive (jetline)" type="StardustRunConfiguration" factoryName="save-as-zip">
+      <option name="folderPath" value="$USER_HOME$/Downloads" />
+      <option name="instanceId" value="jetline" />
+      <option name="instanceName" value="jetline" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
 </project>
