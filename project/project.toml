@@ -1,8 +1,0 @@
-[project]
-name = "project"
-place = "pipelines"
-
-[locations]
-pipeline_folder = "C:\\Users\\WTS85711\\Music\\Projekte\\Piplines\\pipelinenode\\project\\pipelines"
-main_file = "C:\\Users\\WTS85711\\Music\\Projekte\\Piplines\\pipelinenode\\project\\main.py"
-data_file = "C:\\Users\\WTS85711\\Music\\Projekte\\Piplines\\pipelinenode\\project\\data.py"
