@@ -1,12 +1,21 @@
 class Node:
+    """
+    Node
+
+    Represents a node in a graph that performs a specific function on input data.
+
+    Attributes:
+        name (str): The name of the node.
+        function (callable): The function to be executed by the node.
+        inputs (list): A list of input names or values for the function.
+        outputs (list or None): A list of output names for the function. If None, the node does not have outputs.
+
+    Methods:
+        execute(data_manager):
+        Executes the function of the node using input data from the data manager. If outputs are specified, updates the data manager with the results.
+
+    """
     def __init__(self, name, function, inputs, outputs=None):
-        """
-        Args:
-            name: Der Name der Funktion.
-            function: Die Funktion, die aufgerufen wird.
-            inputs: Die Inputs, die der Funktion übergeben werden.
-            outputs: Eine Liste von Namen der Outputs, die im DataManager gespeichert werden sollen.
-        """
         self.name = name
         self.function = function
         self.inputs = inputs
@@ -14,10 +23,15 @@ class Node:
 
     def execute(self, data_manager):
         """
-        Führt die Funktion mit den Inputs aus und speichert jeden Output im DataManager, falls Output-Namen angegeben wurden.
-        
-        Args:
-            data_manager: Eine Instanz von DataManager, um Outputs zu speichern.
+
+        Executes the given function with the provided input data and updates the output data if specified.
+
+        Parameters:
+        - data_manager: The data manager object that is used to access and update data.
+
+        Returns:
+        - The result of executing the function.
+
         """
         resolved_inputs = [data_manager.get_jetline_data(name) if isinstance(name, str) else name for name in self.inputs]
         result = self.function(*resolved_inputs)

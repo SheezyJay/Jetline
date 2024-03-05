@@ -28,7 +28,7 @@ install_requires = [
 
 setup(
     name='jetline',
-    version='0.0.50',
+    version='0.0.51',
     description='Automated Pipeline Builder',
     url='https://github.com/your_username/jetline',
     author='Johannes Kanthak',

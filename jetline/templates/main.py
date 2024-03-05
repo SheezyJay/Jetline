@@ -1,4 +1,5 @@
 from jetline.pipeline.pipeline import PipelineManager
+from jetline.logging import logger
 import sys
 
 def run_pipelines(pipes=None):
@@ -16,8 +17,7 @@ def run_pipelines(pipes=None):
         pipeline_manager.run(PIPELINE_ORDER)
 
     except Exception as e:
-        print(f"Error running pipelines: {e}")
-        sys.exit(1)
+        raise RuntimeError(f"Error running pipelines: {e}") from e
 
 if __name__ == "__main__":
     run_pipelines()

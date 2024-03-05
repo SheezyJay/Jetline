@@ -6,29 +6,60 @@ from jetline.logging import logger
 
 
 class Data:
+    """
+    A class representing data.
+
+    Attributes:
+        name (str): The name of the data.
+        data (Any): The actual data stored.
+    """
     def __init__(self, name, data):
-        """
-         Initializes the object with data. This is the constructor for the class. You can override this if you want to do something other than initialize the object with a different name and / or data
-         
-         Args:
-         	 name: The name of the object
-         	 data: The data to be stored in the object's data
-         	 
-        """
-        
         self.name = name
         self.data = data
    
 class DataManager:
+    """
+    The DataManager class is responsible for managing data objects. It ensures that only a single instance of the class is created.
+
+
+    Example usage:
+
+    caller_path = '/path/to/caller'
+    data_manager = DataManager(caller_path)
+    data_manager.add_jetline_data('name', obj)
+    data_manager.update_jetline_data('name', new_value)
+    data_manager.get_jetline_data('name')
+    data_manager.list_jetline_data()
+    """
     _instance = None
 
     def __new__(cls, *args, **kwargs):
+        """
+            Create a new instance of the class and ensures that only one instance of the class is created
+
+            Parameters:
+            - cls: The class object itself.
+            - *args: Variable length argument list.
+            - **kwargs: Arbitrary keyword arguments.
+
+            Returns:
+            - The instance of the class.
+
+            """
         if cls._instance is None:
             cls._instance = super().__new__(cls)
             cls._instance._initialized = False
         return cls._instance
 
     def __init__(self, caller_path):
+        """
+
+        Initialize the object.
+
+        :param caller_path: The caller_path parameter represents the base path of the caller.
+        :type caller_path: str
+
+        """
         if self._initialized:
             return
         self.data = {}
@@ -38,6 +69,21 @@ class DataManager:
         self._initialized = True
 
     def load_data_classes(self):
+        """
+
+        Purpose:
+        This method loads data classes from a specified file and returns a list of the loaded classes.
+
+        Parameters:
+        - No parameters required.
+
+        Returns:
+        - List of loaded data classes.
+
+        Example Usage:
+        data_classes = load_data_classes()
+
+        """
         data_classes = []
         project_toml_path = self.caller_base_path / "project.toml"
         if os.path.exists(project_toml_path):
@@ -64,61 +110,49 @@ class DataManager:
         return data_classes
 
     def auto_add(self, data_classes):
+        """
+        Automatically adds instances of given data classes to the jetline data.
+
+        :param data_classes: List of data classes to add.
+        """
         for data_class in data_classes:
             instance = data_class()
             self.add_jetline_data(instance.name, instance)
 
     def add_jetline_data(self, name, value):
+        """
+        Add jetline data to the data dictionary.
+        """
         self.data[name] = {'value': value}
 
     def update_jetline_data(self, name, new_value):
+        """
+        Update jetline data to the data dictionary.
+        """
         if name in self.data:
             self.data[name]['value'] = new_value
-            print(f"Data object '{name}' successfully updated.")
+            logger.info(f"Data object '{name}' successfully updated.")
         else:
-            print(f"Data object '{name}' not found. Cannot be updated.")
+            logger.info(f"Data object '{name}' not found. Cannot be updated.")
 
     def get_jetline_data(self, name):
+        """
+        Retrieve the data associated with the given name from the self.data dictionary.
+        """
         data_info = self.data.get(name)
         if data_info:
             return data_info['value'].data if hasattr(data_info['value'], 'data') else data_info['value']
         else:
-            print(f"Data object '{name}' not found.")
-            print("Contents of the self.data dictionary:")
+            logger.error(f"Data object '{name}' not found.")
+            logger.info("Contents of the self.data dictionary:")
             for data_name, data_info in self.data.items():
-                print(f"Name: {data_name}, Value: {data_info['value']}")
+                logger.info(f"Name: {data_name}, Value: {data_info['value']}")
             return None
-
-
     def list_jetline_data(self):
+        """
+        Prints the stored data objects. Just for development.
+        """
         print("Stored data objects:")
         for name, data_info in self.data.items():
             value_type = type(data_info['value'])
             print(f"{name}: {value_type} ")
-# Beispielklassen für Daten
-"""
-class SapData(Data):
-    def __init__(self):
-        super().__init__(
-            name="SAP-Daten",
-            data="asd",
-           
-        )
-
-class DrcData(Data):
-    def __init__(self):
-        super().__init__(
-            name="DRC-Daten",
-            data=None,
-        
-        )
-
-# Beispielverwendung des DataManager
-
-def main():
-    data_manager = DataManager([SapData, DrcData])
-    data_manager.list()
-
-if __name__ == "__main__":
-    main()
-"""
