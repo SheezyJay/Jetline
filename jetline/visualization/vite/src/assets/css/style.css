@@ -105,7 +105,7 @@
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
-    margin: 20px 15px;
+    margin: 20px 12px;
   }
   
   .block:hover {
@@ -154,4 +154,14 @@
   display: flex;
   align-items: center; /* Zentriert den Text vertikal, falls der Bereich höher als der Text ist */
   padding: 10px 0; /* Fügt oben und unten Padding hinzu, um den Bereich aufzufüllen, falls nötig. Adjustieren Sie diesen Wert nach Bedarf */
+}
+/* CSS */
+.inline {
+  display: inline-flex;
+
+}
+
+.stacked {
+  display: block;
+ 
 }
