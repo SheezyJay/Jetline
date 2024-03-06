@@ -105,7 +105,7 @@
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
-    margin: 20px 12px;
+    margin: 40px 12px;
   }
   
   .block:hover {
@@ -158,10 +158,12 @@
 /* CSS */
 .inline {
   display: inline-flex;
+  
 
 }
 
 .stacked {
   display: block;
+  
  
 }

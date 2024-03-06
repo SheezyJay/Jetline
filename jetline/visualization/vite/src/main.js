@@ -54,13 +54,20 @@ var json = {
                   "name": "node_function_3",
                   "function": "def node_function_3(data):\n    \"\"\"\n    An example function that processes data and returns a modified version.\n\n    Args:\n        data: The input data to be processed.\n\n    Returns:\n        str: The processed data.\n    \"\"\"\n    print('Input Data:', data)\n    processed_data = data + 'asasdasdd'\n    print('Processed Data:', processed_data)\n    return processed_data",
                   "description": "An example function that processes data and returns a modified version.\n\nArgs:\n    data: The input data to be processed.\n\nReturns:\n    str: The processed data.",
-                  "inputs": [
-                      "Name"
-                  ],
-                  "outputs": [
-                      "Name"
-                  ]
-              }
+                 
+                 
+              },
+              {
+                "name": "node_function_3",
+                "function": "def node_function_3(data):\n    \"\"\"\n    An example function that processes data and returns a modified version.\n\n    Args:\n        data: The input data to be processed.\n\n    Returns:\n        str: The processed data.\n    \"\"\"\n    print('Input Data:', data)\n    processed_data = data + 'asasdasdd'\n    print('Processed Data:', processed_data)\n    return processed_data",
+                "description": "An example function that processes data and returns a modified version.\n\nArgs:\n    data: The input data to be processed.\n\nReturns:\n    str: The processed data.",
+                "inputs": [
+                    "Name"
+                ],
+                "outputs": [
+                    "Name"
+                ]
+            }
           ]
       },
       "third": {
@@ -167,7 +174,7 @@ Object.keys(json.Pipelines).forEach(pipelineName => {
           type: 'data' // Annahme: 'data' für Outputs
         };
         const outputNodeBlock = createBlock(output, outputNodeOptions);
-        outputNodeBlock.classList.add('inline');
+        outputNodeBlock.classList.add('stacked');
         appendToNodesContainer(pipelineContainer, outputNodeBlock); // Fügen Sie den Output-Block direkt dem Pipeline-Container hinzu
       });
     }
