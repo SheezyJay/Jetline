@@ -1,0 +1,89 @@
+.info-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Startposition rechts außerhalb des Bildschirms */
+    width: 400px; /* Breite der Seitenleiste anpassen */
+    height: 100%; /* Volle Höhe des Bildschirms */
+    background-color: var(--tertiary-background); /* Hintergrundfarbe des Popups */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatten für das Popup */
+    /* Transition-Effekt vorübergehend deaktivieren */
+    transition: right 0.3s ease;
+  }
+  
+  .info-sidebar.open {
+    right: 0; /* Wenn die Sidebar geöffnet ist, schieben Sie sie nach rechts */
+  }
+  
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .component-title {
+    margin: 0;
+    color: #fff;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .close-btn:hover {
+    color: #d9dcde;
+  }
+  
+  .right-content-box {
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .label {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .label-content {
+    margin: 0;
+    font-size: 14px;
+  }
+  .popup {
+   margin: 10px
+  }
+
+  .sidebar-wrapper {
+    position: relative;
+    display: flex;
+  }
+  .code-sidebar {
+    position: fixed;
+    top: 0;
+    
+    right: 400px; /* Startposition rechts außerhalb des Bildschirms */
+    width: auto;
+    min-width: 400px;
+    height: 100%; /* Volle Höhe des Bildschirms */
+    background-color: var(--secondary-background); /* Hintergrundfarbe des Popups */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Schatten für das Popup */
+    /* Transition-Effekt vorübergehend deaktivieren */
+    transition: right 0.3s ease;
+    overflow:auto;
+    
+  }
+  .code-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1px 15px;
+   
+    /* Füge weitere Stile hier hinzu, wie Hintergrundfarbe, Schriftgrößen usw. */
+  }
+  
+  
+  .code-sidebar.open {
+    right: 0; /* Wenn die Sidebar geöffnet ist, schieben Sie sie nach rechts */
+  }

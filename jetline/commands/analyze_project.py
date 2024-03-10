@@ -5,6 +5,8 @@ import importlib.util
 import inspect
 import ast
 import re
+from jetline.commands._helper import _extract_pipeline_order
+
 
 class FunctionVisitor(ast.NodeVisitor):
     def __init__(self):
@@ -13,12 +15,14 @@ class FunctionVisitor(ast.NodeVisitor):
     def visit_FunctionDef(self, node):
         self.functions.append(node)
 
+
 def extract_function_code(module_path, function_name):
     spec = importlib.util.spec_from_file_location("module.name", module_path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     function = getattr(module, function_name)
     return inspect.getsource(function)
+
 
 def extract_functions_from_module(module_path):
     with open(module_path, "r") as f:
@@ -27,6 +31,7 @@ def extract_functions_from_module(module_path):
         visitor.visit(tree)
         functions = [ast.unparse(func) for func in visitor.functions]
         return functions
+
 
 def extract_function_code_from_imports(module_path, function_name):
     with open(module_path, "r") as f:
@@ -57,9 +62,10 @@ def extract_function_code_from_imports(module_path, function_name):
                     pass
     return None
 
+
 def extract_register_function(folder_path):
     pipeline_file_path = os.path.join(folder_path, "pipeline.py")
-    
+
     if os.path.exists(pipeline_file_path):
         with open(pipeline_file_path, "r") as f:
             lines = f.readlines()
@@ -80,11 +86,6 @@ def extract_register_function(folder_path):
 
     return None
 
-def extract_node_name(node_code):
-    match = re.search(r"Node\(name='(.+?)'", node_code)
-    if match:
-        return match.group(1)
-    return None
 
 def extract_node_inputs(node_code):
     inputs = []
@@ -96,12 +97,14 @@ def extract_node_inputs(node_code):
                     inputs.append(input_str)
     return inputs
 
+
 def extract_node_description(function_code):
     if function_code:
         match = re.search(r'"""(.*?)"""', function_code, re.DOTALL)
         if match:
             return match.group(1).strip()
     return None
+
 
 def extract_register_description(register_function_code):
     if register_function_code:
@@ -110,33 +113,76 @@ def extract_register_description(register_function_code):
             return match.group(1).strip()
     return None
 
-def extract_nodes_info(folder_path):
+
+
+import re
+import ast
+import os
+
+
+def extract_functions_from_register(register_function):
+    """Extract functions, inputs, outputs from a given register function."""
+
+    functions = re.findall(r'function=([a-zA-Z0-9_.-]+)', register_function)
+    inputs = re.findall(r'inputs=\[(.*?)\]', register_function)
+    outputs = re.findall(r'outputs=\[(.*?)\]', register_function)
+
+    return functions, inputs, outputs
+
+
+def format_node_parameters(param):
+    """Format given node parameter by removing unnecessary characters and splitting by comma."""
+
+    formatted = param.replace('"', '').replace("'", "").replace(" ", "")
+    return formatted.split(',')
+
+def extract_nodes_info(folder_path, register_function):
+    """Extract and return nodes information from a given Python file in a folder using a register function."""
+
+    function_names, inputs, outputs = extract_functions_from_register(register_function)
+
+    sorted_nodes = [None] * len(function_names)
+    nodes_dict = {}
+
     node_file_path = os.path.join(folder_path, "nodes.py")
-   
-    
     if os.path.exists(node_file_path):
-        with open(node_file_path, "r") as f:
-            tree = ast.parse(f.read(), filename=node_file_path)
-            nodes = []
+        with open(node_file_path, "r") as file:
+            tree = ast.parse(file.read(), filename=node_file_path)
+
             for node_def in tree.body:
                 if isinstance(node_def, ast.FunctionDef):
                     node_name = node_def.name
-                    node_description = ast.get_docstring(node_def)
+                    node_description = ast.get_docstring(node_def) or ''
                     node_code = ast.unparse(node_def)
-                    nodes.append({
+
+                    nodes_dict[node_name] = {
                         "name": node_name,
                         "function": node_code,
-                        "description": node_description if node_description else ""
-                    })
-            
-            return nodes
-    
-    return None
+                        "description": node_description,
+                        "inputs": "",
+                        "outputs": "",
+                    }
+
+            for i, func_name in enumerate(function_names):
+                node_name = func_name.split('.')[-1]
+                if node_name in nodes_dict:
+                    sorted_nodes[i] = nodes_dict[node_name]
+
+                    if i < len(inputs):
+                        sorted_nodes[i]["inputs"] = format_node_parameters(inputs[i])
+
+                    if i < len(outputs):
+                        sorted_nodes[i]["outputs"] = format_node_parameters(outputs[i])
+
+            return sorted_nodes
+
+    return []
+
 
 
 def extract_register_info(folder_path):
     pipeline_file_path = os.path.join(folder_path, "pipeline.py")
-    
+
     if os.path.exists(pipeline_file_path):
         with open(pipeline_file_path, "r") as f:
             tree = ast.parse(f.read(), filename=pipeline_file_path)
@@ -145,8 +191,9 @@ def extract_register_info(folder_path):
                     register_function_code = ast.unparse(node_def)
                     register_description = extract_register_description(register_function_code)
                     return register_description
-    
+
     return None
+
 
 def extract_data_classes_info(current_directory):
     data_classes_info = []
@@ -158,19 +205,23 @@ def extract_data_classes_info(current_directory):
                 if isinstance(node, ast.ClassDef):
                     class_description = ast.get_docstring(node)
                     class_code = ast.unparse(node)
-                    
+
                     class_name_match = re.search(r"name\s*=\s*'([^']*)'", class_code)
                     class_name = class_name_match.group(1) if class_name_match else "Unknown"
-                    
+
                     data_classes_info.append({
                         "name": class_name,
                         "description": class_description if class_description else "",
                         "code": class_code
                     })
     return data_classes_info
+
+
+
+
 def main():
     current_directory = os.getcwd()
-    
+
     toml_file_path = os.path.join(current_directory, "project.toml")
 
     with open(toml_file_path, "r") as f:
@@ -183,9 +234,11 @@ def main():
     if not os.path.exists(place_path):
         print(f"Der angegebene Ordner '{place}' existiert nicht.")
         return
-
+    pipeline_order = _extract_pipeline_order(current_directory)
+    print(pipeline_order)
     pipeline_folders = [folder for folder in os.listdir(place_path) if os.path.isdir(os.path.join(place_path, folder))]
-
+    pipeline_folders = sorted(pipeline_folders,
+                              key=lambda x: pipeline_order.index(x) if x in pipeline_order else len(pipeline_order))
     data = {
         "ProjectName": project_name,
         "DataClasses": [],
@@ -197,6 +250,7 @@ def main():
     data["DataClasses"] = data_classes_info
 
     # Extract pipeline information
+
     for folder in pipeline_folders:
         folder_path = os.path.join(place_path, folder)
         pipeline_info = {
@@ -214,13 +268,12 @@ def main():
         pipeline_info["RegisterFunction"]["Description"] = register_description
 
         # Extract nodes information
-        nodes_info = extract_nodes_info(folder_path)
+        nodes_info = extract_nodes_info(folder_path, register_function)
         pipeline_info["Nodes"] = nodes_info
 
         # Add pipeline information to data
         data["Pipelines"][folder] = pipeline_info
 
-    # Write data to JSON file
     json_file_path = os.path.join(current_directory, "viz-data.json")
     with open(json_file_path, "w") as json_file:
         json.dump(data, json_file, indent=4)
