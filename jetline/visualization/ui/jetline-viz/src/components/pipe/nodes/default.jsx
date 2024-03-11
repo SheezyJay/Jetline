@@ -5,7 +5,7 @@ import FunctionsIcon from '@mui/icons-material/Functions';
 import StorageIcon from '@mui/icons-material/Storage';
 import CodeIcon from '@mui/icons-material/Code';
 
-function DefaultNode({ data }) {
+function DefaultNode({ data, onNodeClick }) {
   let icon = null;
   let inputHandle = <Handle type="target" position={Position.Top} />;
   let outputHandle = <Handle type="source" position={Position.Bottom} />;
@@ -27,7 +27,7 @@ function DefaultNode({ data }) {
   }
 
   const handleClick = () => {
-    alert('Hallo');
+    onNodeClick(data);
   };
 
   return (
@@ -39,5 +39,10 @@ function DefaultNode({ data }) {
     </div>
   );
 }
+
+// Standardwertzuweisung für onNodeClick, falls nicht übergeben
+DefaultNode.defaultProps = {
+  onNodeClick: () => {} // Standard-Handler, der keine Aktion ausführt
+};
 
 export default DefaultNode;

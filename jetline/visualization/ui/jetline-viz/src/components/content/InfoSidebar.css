@@ -4,10 +4,11 @@
     right: -400px; /* Startposition rechts außerhalb des Bildschirms */
     width: 400px; /* Breite der Seitenleiste anpassen */
     height: 100%; /* Volle Höhe des Bildschirms */
-    background-color: var(--tertiary-background); /* Hintergrundfarbe des Popups */
+    background-color: var(--nodes-background); /* Hintergrundfarbe des Popups */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatten für das Popup */
     /* Transition-Effekt vorübergehend deaktivieren */
     transition: right 0.3s ease;
+    z-index: 99999;
   }
   
   .info-sidebar.open {
@@ -67,11 +68,12 @@
     width: auto;
     min-width: 400px;
     height: 100%; /* Volle Höhe des Bildschirms */
-    background-color: var(--secondary-background); /* Hintergrundfarbe des Popups */
+    background-color: var(--nodes-background); /* Hintergrundfarbe des Popups */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Schatten für das Popup */
     /* Transition-Effekt vorübergehend deaktivieren */
     transition: right 0.3s ease;
     overflow:auto;
+    z-index: 99999;
     
   }
   .code-sidebar-header {
