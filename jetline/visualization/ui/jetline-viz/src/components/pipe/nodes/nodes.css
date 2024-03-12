@@ -1,0 +1,32 @@
+
+.react-flow__node.react-flow__node-default,
+.react-flow__node.react-flow__node-input,
+.react-flow__node.react-flow__node-output {
+  
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--nodes-border);
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--nodes-background);
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: var(--primary-text-color)
+   
+}
+
+.react-flow__node.react-flow__node-default:hover,
+.react-flow__node.react-flow__node-input:hover,
+.react-flow__node.react-flow__node-output:hover {
+    border-color: var(--primary-color);
+}
+
+.react-flow__node.react-flow__node-default:focus,
+.react-flow__node.react-flow__node-input:focus,
+.react-flow__node.react-flow__node-output:focus,
+.react-flow__node.react-flow__node-default:focus-visible,
+.react-flow__node.react-flow__node-input:focus-visible,
+.react-flow__node.react-flow__node-output:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}

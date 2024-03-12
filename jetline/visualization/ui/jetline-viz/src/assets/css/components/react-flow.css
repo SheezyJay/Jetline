@@ -1,0 +1,43 @@
+/* Start - Control Panel */
+.react-flow__panel.react-flow__controls {
+    z-index: 9999;
+    border-radius: 10px;
+}
+
+.react-flow__panel.react-flow__controls button {
+    background-color: var(--gray-dark);
+    border: none;
+    color: #fff;
+    padding: 12px 12px;
+    margin: 10px 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.react-flow__panel.react-flow__controls button:hover {
+    background-color: #777;
+}
+
+.react-flow__controls-zoomin svg path {
+    fill: #fff;
+}
+
+.react-flow__controls-zoomout svg path {
+    fill: #fff;
+}
+
+.react-flow__controls-fitview svg path {
+    fill: #fff;
+}
+
+.react-flow__controls-interactive svg path {
+    fill: #fff;
+}
+/* End - Control Panel */
+
+
+
+.react-flow__minimap svg {
+    background-color: #333; 
+}

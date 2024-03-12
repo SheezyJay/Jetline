@@ -1,0 +1,30 @@
+my-react-app/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   └── styles/
+│   ├── components/
+│   │   ├── Button/
+│   │   │   ├── Button.js
+│   │   │   └── Button.css
+│   │   └── ...
+│   ├── pages/
+│   │   ├── Home/
+│   │   │   ├── Home.js
+│   │   │   └── Home.css
+│   │   └── ...
+│   ├── services/
+│   │   ├── api.js
+│   │   └── ...
+│   ├── utils/
+│   │   ├── helpers.js
+│   │   └── ...
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+├── .gitignore
+├── package.json
+└── README.md

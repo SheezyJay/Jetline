@@ -235,6 +235,10 @@ def main():
         print(f"Der angegebene Ordner '{place}' existiert nicht.")
         return
     pipeline_order = _extract_pipeline_order(current_directory)
+<<<<<<< HEAD
+=======
+    print(pipeline_order)
+>>>>>>> 8471b2c70e3e93032e109e8bd478c8d7e10ef308
     pipeline_folders = [folder for folder in os.listdir(place_path) if os.path.isdir(os.path.join(place_path, folder))]
     pipeline_folders = sorted(pipeline_folders,
                               key=lambda x: pipeline_order.index(x) if x in pipeline_order else len(pipeline_order))
