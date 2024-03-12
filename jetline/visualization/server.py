@@ -29,3 +29,7 @@ app.mount("/ui", StaticFiles(directory=ui_directory, html=True), name="ui")
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="localhost", port=8000)
+
+
+
+
