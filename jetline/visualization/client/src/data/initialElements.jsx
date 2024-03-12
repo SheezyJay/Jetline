@@ -7,7 +7,7 @@ export const nodes = [
     {
       type: 'default',
       id: '1',
-      data:  { "icon": "<Check />", "title": "readFile", "subline": "api.ts", "stream": ["output"], "code": "def node_function_1(data):\n    \"\"\"\n    An example function that processes data and returns a modified version.\n\n    Args:\n        data: The input data to be processed.\n\n    Returns:\n        str: The processed data.\n    \"\"\"\n    print('Input Data:', data)\n    processed_data = data + 'asasdasdd'\n    print('Processed Data:', processed_data)\n    return processed_data", "type":"data", "input": "Name", "output": "OutputName"},
+      data:  { "icon": "<Check />", "title": "readFile", "subline": "api.ts", "stream": ["output"], "code": "def node_function_1(data):\n    \"\"\"\n    An example function that processes data and returns a modified version.\n\n    Args:\n        data: The input data to be processed.\n\n    Returns:\n        str: The processed data.\n    \"\"\"\n    print('Input Data:', data)\n    processed_data = data + 'asasdasdd'\n    print('Processed Data:', processed_data)\n    return processed_data", "type":"data", "input": "Name", "output": "OutputName", "description": "An example function that processes data and returns a modified version.\n\nArgs:\n    data: The input data to be processed.\n\nReturns:\n    str: The processed data.",},
       position: { x: 100, y: 0 },
 
     },

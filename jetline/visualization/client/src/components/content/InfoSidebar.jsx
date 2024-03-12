@@ -103,6 +103,12 @@ const InfoSidebar = ({ isOpen, data, onClose, onToggle }) => {
               </p>
             </div>
             <div className="right-content-box">
+              <h3 className="label">Description:</h3>
+              <p className="label-content">
+                {data.description ? data.description : "-----"}
+              </p>
+            </div>
+            <div className="right-content-box">
               <h3 className="label">Type:</h3>
               <p className="label-content">
                 {data.type ? data.type : "-----"}
