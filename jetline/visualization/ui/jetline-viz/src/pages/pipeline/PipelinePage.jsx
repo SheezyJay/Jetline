@@ -26,11 +26,11 @@ const PipelinePage = () => {
   const closeSidebar = () => {
     setIsOpen(false);
   };
-
   const handleNodeClick = (_, node) => {
-    setData({ name: node.data.title, ...node.data });
+    setData(node.data);
     setIsOpen(true);
   };
+  
   const nodeTypes = useMemo(() => ({
     default: DefaultNode,
   }), []);
