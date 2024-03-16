@@ -1,40 +1,72 @@
+/* sidebar.css */
+.sidebar {
+  height: 100%;
+  width: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #18191b;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  /* Sidebar */
-  .sidebar {
-    height: 100%; 
-    width: 90px;
-    position: fixed;
-    top: 0; 
-    left: 0; 
-    background-color: #18191b;
-     z-index: 9998;
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
-  }
-  
-  .sidebar ul {
-    list-style-type: none; 
-    padding: 0;
-    margin: 0; 
-  }
-  
-  .sidebar ul li {
-    text-align: center; 
-  }
-  
-  .sidebar ul li a {
-    display: block; 
-    padding: 10px; 
-    color: white; 
-    text-decoration: none; 
-  }
-  
-  .sidebar ul li a:hover {
-    background-color: #d2d2d23d;
-  }
-  
-  .sidebar .logo img {
-    width: 50px; 
-    height: auto; 
-    margin: 10px auto; 
-    display: block; 
-  }
+.sidebar ul li {
+  text-align: center;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  background-color: #d2d2d23d;
+}
+
+.sidebar .logo {
+  margin: 10px auto;
+  display: block;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertikal zentrieren */
+  align-items: center; /* Horizontal zentrieren */
+  flex-grow: 1; /* Flex-Element streckt sich vertikal aus, um den verbleibenden Platz zu füllen */
+}
+
+.button-container button {
+  margin: 10px; /* Abstand zwischen den Buttons */
+}
+
+
+.flow-controls-button {
+  font-size: 20px;
+  margin-bottom: 15px;
+  background-color: var(--gray-dark);
+  color: #d4d0d0;
+  border: 2px solid var(--gray-dark);
+  border-radius: 5px;
+  padding: 5px 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.flow-controls-button:hover.close-icon {
+  color: var(--danger-color) !important;
+}
+
+.flow-controls-button:hover.play-icon {
+color: var(--success-color) !important;
+}

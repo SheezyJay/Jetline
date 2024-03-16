@@ -37,3 +37,12 @@
 .react-flow__node.react-flow__node-output:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
+
+.react_flow_handle_style {
+    background: var(--nodes-background) !important;
+    width: 12px !important;
+    height: 3px !important;
+    border-radius: 2px !important;
+    border: 0.75px solid var(--nodes-border) !important;
+  }
+  

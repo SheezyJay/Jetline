@@ -122,7 +122,7 @@ def extract_functions_from_register(register_function):
     functions = re.findall(r'function=([a-zA-Z0-9_.-]+)', register_function)
     inputs = re.findall(r'inputs=\[(.*?)\]', register_function)
     outputs = re.findall(r'outputs=\[(.*?)\]', register_function)
-  
+
     return functions, inputs, outputs
 
 

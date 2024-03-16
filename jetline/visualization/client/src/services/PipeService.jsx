@@ -1,33 +1,11 @@
-import React, { useState, useEffect } from 'react';
+// dataFetcher.js
 import jsonData from '../viz-data.json';
 
-function PipelineDataFetcher() {
-  const [pipelineData, setPipelineData] = useState(null);
+export const fetchData = async () => {
+  // Simulieren einer asynchronen Operation, z.B. das Abrufen von Daten von einer API
+  const simulateAsync = new Promise((resolve) => {
+    setTimeout(() => resolve(jsonData), 1000); // Verzögerung von 1 Sekunde
+  });
 
-  useEffect(() => {
-    const storedData = localStorage.getItem('pipelineData');
-    if (storedData) {
-      setPipelineData(JSON.parse(storedData));
-    } else {
-      // Wenn keine gespeicherten Daten vorhanden sind, setzen Sie die Daten auf jsonData
-      setPipelineData(jsonData);
-      // Speichern der Daten im lokalen Speicher
-      localStorage.setItem('pipelineData', JSON.stringify(jsonData));
-    }
-  }, []);
-
-  return (
-    <div>
-      {pipelineData ? (
-        <div>
-          <h2>Pipeline Data</h2>
-          <pre>{JSON.stringify(pipelineData, null, 2)}</pre>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-  );
-}
-
-export default PipelineDataFetcher;
+  return simulateAsync;
+};

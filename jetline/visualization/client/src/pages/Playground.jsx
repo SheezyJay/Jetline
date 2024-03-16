@@ -1,37 +1,22 @@
-import React, { useState } from 'react';
-import InfoSidebar from '../components/content/InfoSidebar';
-import PipelineDataFetcher from '../services/PipeService'; // Stellen Sie sicher, dass der Pfad korrekt ist
+import React, { useState, useEffect } from 'react';
+
+import { fetchData } from '../services/PipeService';
+
+
 
 function PipelinePage() {
-    const [isOpen, setIsOpen] = useState(false);
-  const [data, setData] = useState({
-    name: '',
-    links: []
-  });
+  const [data, setData] = useState(null);
 
-  const toggleSidebar = (sidebarData) => {
-    setData(sidebarData);
-    setIsOpen(!isOpen);
-  };
-  const closeSidebar = () => {
-    setIsOpen(false);
-  };
-  
+  useEffect(() => {
+    fetchData().then(data => {
+      setData(data);
+    });
+  }, []);
 
   return (
     <div>
-      <h1>Pipeline-Seite</h1>
-     
-
-      <button onClick={() => toggleSidebar({ name: 'Max Mustermann', links: ['Link 1', 'Link 2', 'Link 3', 'Link 4'] })}>
-        {isOpen ? 'Close Sidebar' : 'Open Sidebar'}
-      </button>
-    
-     
-      <InfoSidebar isOpen={isOpen} data={data} onClose={closeSidebar} />
-      <PipelineDataFetcher />
+      {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Daten werden geladen...</p>}
     </div>
   );
 }
-
 export default PipelinePage;

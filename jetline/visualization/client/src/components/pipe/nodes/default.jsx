@@ -4,11 +4,20 @@ import './nodes.css';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import StorageIcon from '@mui/icons-material/Storage';
 import CodeIcon from '@mui/icons-material/Code';
+import CircularProgress from '@mui/material/CircularProgress'; // Importieren des Ladesymbols
 
-function DefaultNode({ data, onNodeClick }) {
+const handleStyle = {
+  background: 'var(--nodes-background)',
+  width: '12px',
+  height: '3px',
+  borderRadius: '2px',
+  border: '0.75px solid var(--nodes-border)',
+};
+
+function DefaultNode({ data, onNodeClick, running, isLoading }) { 
   let icon = null;
-  let inputHandle = <Handle type="target" position={Position.Top} />;
-  let outputHandle = <Handle type="source" position={Position.Bottom} />;
+  let inputHandle = <Handle className="react_flow_dot"  type="target" position={Position.Top} style={handleStyle} />;
+  let outputHandle = <Handle className="react_flow_dot" type="source" position={Position.Bottom} style={handleStyle} />;
 
   if (data.type === 'function') {
     icon = <CodeIcon />;
@@ -31,8 +40,13 @@ function DefaultNode({ data, onNodeClick }) {
   };
 
   return (
-    <div key={data.id} style={{ display: 'flex', alignItems: 'center' }} onClick={handleClick}>
-      {inputHandle}
+    <div
+      key={data.id}
+      className="node-default"
+      style={{ display: 'flex', alignItems: 'center' }}
+      onClick={handleClick}
+    >
+       {inputHandle}
       {icon}
       <div style={{ marginLeft: '0.5rem' }}>{data.title}</div>
       {outputHandle}
@@ -42,7 +56,9 @@ function DefaultNode({ data, onNodeClick }) {
 
 // Standardwertzuweisung für onNodeClick, falls nicht übergeben
 DefaultNode.defaultProps = {
-  onNodeClick: () => {} // Standard-Handler, der keine Aktion ausführt
+  onNodeClick: () => {}, 
+  running: false, // Standardmäßig ist `running` false
+  isLoading: false, // Standardmäßig ist `isLoading` false
 };
 
 export default DefaultNode;

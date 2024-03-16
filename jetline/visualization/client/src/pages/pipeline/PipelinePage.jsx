@@ -10,7 +10,7 @@ import ReactFlow, {
   Background,
 } from "reactflow";
 import InfoSidebar from '../../components/content/InfoSidebar';
-
+import DefaultEdge from "../../components/pipe/edge/default";
 import { nodes, edges } from "../../data/initialElements";
 
 const proOptions = { hideAttribution: true };
@@ -34,6 +34,12 @@ const PipelinePage = () => {
   const nodeTypes = useMemo(() => ({
     default: DefaultNode,
   }), []);
+  const edgeTypes = useMemo(() => ({
+    default: DefaultEdge,
+  }), []);
+
+
+  
 
   return (
     <ReactFlow
@@ -43,6 +49,7 @@ const PipelinePage = () => {
       proOptions={proOptions}
       onNodeClick={handleNodeClick}
       nodeTypes={nodeTypes}
+      edgeTypes={edgeTypes}
    
     >
       <Layout>
