@@ -1,81 +1,47 @@
 {
   "nodes": [
     {
-      "type": "default",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
       "id": "1",
-      "data": {
-        "title": "Name",
-        "type": "data",
-        "stream": [
-          "output"
-        ],
-        "description": "This is an example class for one Data source for your pipeline",
-        "code": "class YourDataClass(Data):\n    \"\"\"This is an example class for one Data source for your pipeline\"\"\"\n\n    def __init__(self):\n        super().__init__(name='Name', data=self.get_data())\n\n    def get_data(self):\n        file = choose_file()\n        return file"
-      }
-    },
-    {
       "type": "default",
-      "position": {
-        "x": 300,
-        "y": 0
-      },
-      "id": "9",
       "data": {
-        "title": "Naasdme",
-        "type": "data",
-        "stream": [
-          "output"
-        ],
-        "description": "This is an example class for one Data source for your pipeline",
-        "code": "class YourDataClass(Data):\n    \"\"\"This is an example class for one Data source for your pipeline\"\"\"\n\n    def __init__(self):\n        super().__init__(name='Name', data=self.get_data())\n\n    def get_data(self):\n        file = choose_file()\n        return file"
-      }
-    },
-    {
-      "type": "default",
-      "position": {
-        "x": 200,
-        "y": 100
+          "title": "Name",
+          "type": "data",
+          "description": "asdads",
+          "code": "class YourDataClass(Data):\n    \"\"\"asdads\"\"\"\n\n    def __init__(self):\n        super().__init__(name='Name', data=self.get_data())\n\n    @staticmethod\n    def get_data():\n        file = choose_file()\n        return file"
       },
+      "position": {
+          "x": 100,
+          "y": 0
+      }
+  },
+  {
       "id": "2",
-      "data": {
-        "title": "Naasdme",
-        "type": "data",
-        "description": "This is an example class for one Data source for your pipeline",
-        "code": "class YourDataClasasds(Data):\n    \"\"\"This is an example class for one Data source for your pipeline\"\"\"\n\n    def __init__(self):\n        super().__init__(name='Naasdme', data=self.get_data())\n\n    def get_data(self):\n        file = choose_file()\n        return file"
-      }
-    },
-    {
       "type": "default",
-      "position": {
-        "x": 100,
-        "y": 300
+      "data": {
+          "title": "Name",
+          "type": "data",
+          "description": "",
+          "code": "class YourDataClass(Data):\n\n    def __init__(self):\n        super().__init__(name='Name', data=self.get_data())\n\n    @staticmethod\n    def get_data():\n        file = choose_file()\n        return file"
       },
+      "position": {
+          "x": 300,
+          "y": 0
+      }
+  },
+  {
       "id": "3",
-      "data": {
-        "title": "Naasme",
-        "type": "data",
-        "description": "This is an example class for one Data source for your pipeline",
-        "code": "class YourDataClass(Data):\n    \"\"\"This is an example class for one Data source for your pipeline\"\"\"\n\n    def __init__(self):\n        super().__init__(name='Name', data=self.get_data())\n\n    def get_data(self):\n        file = choose_file()\n        return file"
-      }
-    },
-    {
       "type": "default",
-      "position": {
-        "x": 500,
-        "y": 200
-      },
-      "id": "4",
       "data": {
-        "title": "Naasdme",
-        "type": "data",
-        "description": "This is an example class for one Data source for your pipeline",
-        "code": "class YourDataClasasds(Data):\n    \"\"\"This is an example class for one Data source for your pipeline\"\"\"\n\n    def __init__(self):\n        super().__init__(name='Naasdme', data=self.get_data())\n\n    def get_data(self):\n        file = choose_file()\n        return file"
+          "title": "Name",
+          "type": "data",
+          "description": "",
+          "code": "class YourDataClass(Data):\n\n    def __init__(self):\n        super().__init__(name='Name', data=self.get_data())\n\n    @staticmethod\n    def get_data():\n        file = choose_file()\n        return file"
+      },
+      "position": {
+          "x": 500,
+          "y": 0
       }
-    }
+  }
   ],
   "edges": [
     {

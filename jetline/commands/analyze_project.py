@@ -1,11 +1,10 @@
 import os
 import json
-import toml
 import importlib.util
 import inspect
 import ast
 import re
-from jetline.commands._helper import _extract_pipeline_order
+from jetline.commands._helper import _extract_pipeline_order,get_project_infos
 
 
 
@@ -230,22 +229,15 @@ def extract_data_classes_info(current_directory):
     return data_classes_info
 
 
+
+
 def main():
-    current_directory = os.getcwd()
+    
+    project_name,place_path, current_dir=  get_project_infos()
+    
 
-    toml_file_path = os.path.join(current_directory, "project.toml")
-
-    with open(toml_file_path, "r") as f:
-        toml_data = toml.load(f)
-        project_name = toml_data["project"]["name"]
-        place = toml_data["project"]["place"]
-
-    place_path = os.path.join(current_directory, place)
-
-    if not os.path.exists(place_path):
-        print(f"Der angegebene Ordner '{place}' existiert nicht.")
-        return
-    pipeline_order = _extract_pipeline_order(current_directory)
+   
+    pipeline_order = _extract_pipeline_order(current_dir)
     pipeline_folders = [folder for folder in os.listdir(place_path) if os.path.isdir(os.path.join(place_path, folder))]
     pipeline_folders = sorted(pipeline_folders,
                               key=lambda x: pipeline_order.index(x) if x in pipeline_order else len(pipeline_order))
@@ -259,7 +251,7 @@ def main():
 
     # Extract data classes information
     
-    nodes.extend(extract_data_classes_info(current_directory))
+    nodes.extend(extract_data_classes_info(current_dir))
 
     
    # data["DataClasses"] = data_classes_info
@@ -290,7 +282,7 @@ def main():
         data["Pipelines"][folder] = pipeline_info
     
   #  print(nodes)
-    json_file_path = os.path.join(current_directory, "viz-data.json")
+    json_file_path = os.path.join(current_dir, "viz-data.json")
     with open(json_file_path, "w") as json_file:
         json.dump(nodes, json_file, indent=4)
 

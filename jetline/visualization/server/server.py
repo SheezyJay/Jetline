@@ -20,5 +20,4 @@ async def assets(file_path: str) -> Any:
     return FileResponse(f"dist/assets/{file_path}")
 
 if __name__ == "__main__":
-    # Run the FastAPI application using FlaskUI
     FlaskUI(app=app, server="fastapi").run()

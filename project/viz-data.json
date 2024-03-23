@@ -1,0 +1,37 @@
+[
+    {
+        "id": 3,
+        "data": {
+            "title": "node_function_1",
+            "type": "function",
+            "code": "def node_function_1(data):\n    \"\"\"\n    An example function that processes data and returns a modified version.\n\n    Args:\n        data: The input data to be processed.\n\n    Returns:\n        str: The processed data.\n    \"\"\"\n    print('Input Data:', data)\n    processed_data = data + 'asasdasdd'\n    print('Processed Data:', processed_data)\n    return processed_data",
+            "description": "An example function that processes data and returns a modified version.\n\nArgs:\n    data: The input data to be processed.\n\nReturns:\n    str: The processed data.",
+            "inputs": [
+                "Name"
+            ],
+            "outputs": [
+                "Name"
+            ],
+            "stream": [
+                "input",
+                "output"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "data": {
+            "title": "node_function_2",
+            "type": "function",
+            "code": "def node_function_2(data):\n    \"\"\"\n    An example function that returns the input data unchanged.\n\n    Args:\n        data: The input data.\n\n    Returns:\n        str: The input data.\n    \"\"\"\n    print('Input Data:', data)\n    return data",
+            "description": "An example function that returns the input data unchanged.\n\nArgs:\n    data: The input data.\n\nReturns:\n    str: The input data.",
+            "inputs": [
+                "Name"
+            ],
+            "outputs": "",
+            "stream": [
+                "input"
+            ]
+        }
+    }
+]
