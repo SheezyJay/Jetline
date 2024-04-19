@@ -1,8 +1,0 @@
-[project]
-name = "project"
-place = "pipelines"
-
-[locations]
-pipeline_folder = "/Users/johannes/Documents/MetaX/projects/Kedro/Jetline/project/pipelines"
-main_file = "/Users/johannes/Documents/MetaX/projects/Kedro/Jetline/project/main.py"
-data_file = "/Users/johannes/Documents/MetaX/projects/Kedro/Jetline/project/data.py"
