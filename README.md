@@ -6,3 +6,4 @@ Pipelinenode is a Python package for managing pipeline nodes.
 
 You can install Pipelinenode using pip:
 
+![](docs/docfx/images/MixtureOpen.gif)
