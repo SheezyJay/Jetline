@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
+import os
 
 
 def choose_file():
@@ -11,8 +12,6 @@ def choose_file():
     root.withdraw()
     file_path = filedialog.askopenfilename()
     return file_path
-import os
-import pandas as pd
 
 
 def load_file_to_dataframe(file_path, delimiter=';'):

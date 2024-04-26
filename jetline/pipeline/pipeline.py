@@ -46,7 +46,7 @@ class PipelineManager:
         self.load_pipelines()
 
     @staticmethod
-    def get_caller_path(self):
+    def get_caller_path():
         """
         Description:
         This method returns the path of the file that called it.

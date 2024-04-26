@@ -14,7 +14,7 @@ def update_pipeline_order(pipeline_name):
     """
     current_directory = os.getcwd()
     main_py_path = os.path.join(current_directory, 'main.py')
-    print(main_py_path)
+
     if not os.path.exists(main_py_path):
         click.echo(f"{Fore.RED}main.py file not found in the current directory.{Style.RESET_ALL}")
         return

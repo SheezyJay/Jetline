@@ -1,0 +1,8 @@
+toml~=0.10.2
+jetline~=0.0.51
+pandas~=2.2.0
+click~=8.1.7
+colorama~=0.4.6
+coloredlogs~=15.0.1
+loguru~=0.7.2
+fastapi~=0.110.0
