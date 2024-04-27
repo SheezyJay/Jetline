@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e86839dd-a707-4c82-93bd-21274ddcb2c8" name="Changes" comment="delete unused files">
-      <change beforePath="$PROJECT_DIR$/builder.txt" beforeDir="false" afterPath="$PROJECT_DIR$/builder.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/commands/create_pipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/commands/create_pipe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jetline/commands/run_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/commands/run_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/data/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/data/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/logging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/pipeline/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/pipeline/pipeline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713522493797</updated>
       <workItem from="1713522495086" duration="15518000" />
-      <workItem from="1714063390503" duration="5699000" />
+      <workItem from="1714063390503" duration="7099000" />
     </task>
     <task id="LOCAL-00001" summary="delete unused files">
       <option name="closed" value="true" />
@@ -141,9 +137,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="delete unused files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Jetline$run_pipeline.coverage" NAME="run_pipeline Coverage Results" MODIFIED="1713526688512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jetline/commands" />
+    <SUITE FILE_PATH="coverage/Jetline$run_pipeline.coverage" NAME="run_pipeline Coverage Results" MODIFIED="1714202202352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jetline/commands" />
     <SUITE FILE_PATH="coverage/Jetline$exe.coverage" NAME="exe Coverage Results" MODIFIED="1714068687500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
-    <SUITE FILE_PATH="coverage/Jetline$main.coverage" NAME="main Coverage Results" MODIFIED="1714111138087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
+    <SUITE FILE_PATH="coverage/Jetline$main.coverage" NAME="main Coverage Results" MODIFIED="1714130045406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
     <SUITE FILE_PATH="coverage/Jetline$server.coverage" NAME="server Coverage Results" MODIFIED="1714051787120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jetline/visualization/server" />
   </component>
 </project>

@@ -1,6 +1,26 @@
-import os
 import click
+import os
 import sys
+
+
+def run_pipeline(pipeline_name=None):
+    """
+    Runs a pipeline specified by the given pipeline name.
+
+    Parameters:
+        pipeline_name (str): The name of the pipeline to run. Default is None.
+
+    """
+    current_directory = os.getcwd()
+    sys.path.insert(0, current_directory)
+
+    try:
+        from main import run_pipelines
+        run_pipelines(pipeline_name)
+    except ImportError as e:
+        click.secho(f"Failed to import 'main.py'. Error: {e}", fg='red')
+    finally:
+        sys.path.remove(current_directory)
 
 
 @click.command()
@@ -17,12 +37,12 @@ def main(pipeline_name):
     main_path = os.path.join(current_directory, main_file)
 
     if os.path.isfile(main_path):
-        if pipeline_name is not None:
+        if pipeline_name:
             click.secho(f"Directory successfully located. Running pipeline(s) '{pipeline_name}'...", fg='green')
-            os.system(f'{sys.executable} -c "from main import run_pipelines; run_pipelines(\'{pipeline_name}\')"')
         else:
-            click.secho("Directory successfully located. Running Pipelines...", fg='green')
-            os.system(f'{sys.executable} -c "from main import run_pipelines; run_pipelines()"')
+            click.secho("Directory successfully located. Running all pipelines...", fg='green')
+
+        run_pipeline(pipeline_name)
     else:
         click.secho(f"{main_file} not found in the current directory.", fg='red')
 
