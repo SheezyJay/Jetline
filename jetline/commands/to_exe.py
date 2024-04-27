@@ -3,6 +3,8 @@ import os
 import re
 import vulture
 import toml
+
+
 def _read_main_file_content(main_path):
     """
     Liest den Inhalt der Hauptdatei (main.py).
@@ -42,8 +44,6 @@ def _find_folders(directory, folder_list):
             click.echo(f"Ordner '{folder_name}' nicht gefunden.")
 
 
-
-
 def _extract_project_info(caller_path):
     """
     Extrahiert den Namen und den Ort (place) aus der project.toml-Datei.
@@ -75,12 +75,14 @@ def _copy_nodes_content(folder_name, folder_path):
      
         with open(nodes_file_path, 'r') as nodes_file:
             nodes_content = nodes_file.read()
-            if nodes_content.strip(): 
+            if nodes_content.strip():
+
                 _modify_exe_file(f"Nodes content from '{folder_name}'", nodes_content.strip())
             else:
                 click.echo(f"Die 'nodes.py'-Datei in '{folder_name}' ist leer.")
     else:
         click.echo(f"Die 'nodes.py'-Datei wurde in '{folder_name}' nicht gefunden.")
+
 
 def _extract_node_functions(pipeline_content):
     extracted_functions = []
@@ -130,7 +132,7 @@ def _call_node_functions(folder_name, folder_path):
             if pipeline_content.strip(): 
                
                 modified_content = "\n".join(_extract_node_functions(pipeline_content))
-                _modify_exe_file(f"Nodes content from '{folder_name}'",modified_content )
+                _modify_exe_file(f"Nodes content from '{folder_name}'", modified_content )
             else:
                 click.echo(f"Die 'nodes.py'-Datei in '{folder_name}' ist leer.")
     else:
@@ -187,67 +189,6 @@ def _modify_exe_file(comment, value):
         exe_file.writelines(lines)
 
 
-def _copy_jetline_functions():
-    """
-    Kopiert die Funktionen aus dem Modul jetline.data.helper und gibt sie als Text zurück.
-    """
-    try:
-        # Pfad zum Modul jetline.data.helper
-        module_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "helper.py")
-
-        # Funktionen aus dem Modul lesen und als Text zurückgeben
-        with open(module_path, 'r') as module_file:
-            module_content = module_file.read()
-            return module_content
-    except FileNotFoundError:
-        print("Modul jetline.data.helper nicht gefunden.")
-    except Exception as e:
-        print(f"Fehler beim Lesen des Moduls jetline.data.helper: {e}")
-
-
-def clean_exe_file():
-    exe_file_path = os.path.join(os.getcwd(), 'exe.py')
-
-    # Vulture verwenden, um nicht verwendeten Code zu finden
-    def vulture_scan():
-        v = vulture.Vulture()
-        v.scan(open(exe_file_path).read())
-
-        # Zeilennummern des nicht verwendeten Codes extrahieren
-        unused_code_lines = set()
-        for item in v.get_unused_code():
-            unused_code_lines.update(range(item.first_lineno, item.last_lineno + 1))
-
-        # Alle Zeilen mit nicht verwendeten Code oder Kommentaren in """ entfernen
-        if unused_code_lines:
-            with open(exe_file_path, 'r') as f:
-                lines = f.readlines()
-
-            modified_lines = []
-            in_multiline_comment = False
-            for line_number, line in enumerate(lines, start=1):
-                # Überprüfen, ob die Zeile in einem mehrzeiligen Kommentar ist
-                if '"""' in line:
-                    if not in_multiline_comment:
-                        in_multiline_comment = True
-                    else:
-                        in_multiline_comment = False
-                        continue
-                if in_multiline_comment:
-                    continue
-                
-                # Überprüfen, ob die Zeile nicht verwendet wird oder leer ist
-                if line_number not in unused_code_lines and line.strip():  # strip entfernt Whitespace am Anfang und Ende
-                    modified_lines.append(line)
-
-            with open(exe_file_path, 'w') as f:
-                f.writelines(modified_lines)
-
-    vulture_scan()
-    vulture_scan()
-    print("Nicht verwendeten Code erfolgreich entfernt.")
-    
-
 def _find_classes():
     """
     Sucht nach Klassen in der data.py-Datei im aktuellen Verzeichnis und initialisiert sie in der exe.py-Datei.
@@ -258,19 +199,9 @@ def _find_classes():
     if os.path.exists(data_file_path):
         with open(data_file_path, 'r') as file:
             file_content = file.read()
-            if file_content.strip():  # Überprüfen, ob die Dateiinhalt nicht leer ist
-                # Kopieren von Funktionen aus jetline-Modulen
-                copied_functions = _copy_jetline_functions()
-                _modify_exe_file("Helper", copied_functions.strip())
-
-                # Entfernen von 'Data' innerhalb von Klammern
-
-                file_content = re.sub(r'^(?:from\s+jetline.*|import\s+jetline.*)$', '', file_content, flags=re.MULTILINE)
-                file_content = "class Data:\n    def __init__(self, name, data):\n        self.name = name\n        self.data = data\n\n" + file_content
-
+            if file_content.strip():
                 _modify_exe_file("Data Classes", file_content.strip())
 
-                # Finden aller Klassendefinitionen
                 class_definitions = re.findall(r'class\s+(\w+)\(.*?\):', file_content)
 
                 # Initialisieren von Klassen in exe.py
@@ -278,13 +209,13 @@ def _find_classes():
                 for class_name in class_definitions:
                     class_content = re.search(r'class\s+' + class_name + r'\(.*?\):(.+?)(?=class|\Z)', file_content, re.DOTALL)
                     if class_content:
+
                         name_assignment = re.search(r'name\s*=\s*["\']([^"\']+)["\']', class_content.group(1))
                         if name_assignment:
+
                             initialization_line = f"{name_assignment.group(1)} = {class_name}()"
                             initialization_lines.append(initialization_line)
 
-
-                # Verbinden der Initialisierungszeilen
                 initialization_content = '\n'.join(initialization_lines)
 
                 # Ändern der exe.py-Datei
@@ -331,7 +262,7 @@ def main(output_name):
     _create_exe_file(project_name)
     _find_classes()
     _search_folders(place_directory, pipeline_order)
-    clean_exe_file()
+
  
     
 

@@ -1,8 +1,0 @@
-[project]
-name = "project"
-place = "pipelines"
-
-[locations]
-pipeline_folder = "/Users/johanneskanthak/Documents/projects/Invoice Attach Creator WTS/Jetline/project/pipelines"
-main_file = "/Users/johanneskanthak/Documents/projects/Invoice Attach Creator WTS/Jetline/project/main.py"
-data_file = "/Users/johanneskanthak/Documents/projects/Invoice Attach Creator WTS/Jetline/project/data.py"
