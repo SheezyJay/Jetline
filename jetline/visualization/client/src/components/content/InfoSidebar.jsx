@@ -116,17 +116,14 @@ const InfoSidebar = ({ isOpen, data, onClose, onToggle }) => {
             </div>
             
             
-            <div className="right-content-box">
-                <h3 className="label">Streams:</h3>
-                <p className="label-content">{data.streams ? data.streams : "-----"}</p>
-              </div>
+
               <div className="right-content-box">
                 <h3 className="label">Input:</h3>
-                <p className="label-content">{data.input ? data.input : "-----"}</p>
+                <p className="label-content">{data.inputs ? data.inputs : "-----"}</p>
               </div>
               <div className="right-content-box">
                 <h3 className="label">Output:</h3>
-                <p className="label-content">{data.output ? data.output : "-----"}</p>
+                <p className="label-content">{data.outputs ? data.outputs : "-----"}</p>
               </div>
          
           </div>

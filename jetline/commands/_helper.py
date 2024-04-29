@@ -30,7 +30,7 @@ def get_project_infos():
         raise ValueError("Project name or place is missing in the TOML file.")
 
 
-def _extract_pipeline_order(current_directory):
+def extract_pipeline_order(current_directory):
     """
     Extracts the PIPELINE_ORDER list from the content of the main file.
 

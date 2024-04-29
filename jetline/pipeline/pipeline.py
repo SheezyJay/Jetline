@@ -6,14 +6,14 @@ from jetline.data.data import DataManager
 from jetline.logging import logger
 import os
 import sys
-
+import concurrent.futures
 
 class Pipeline:
     def __init__(self, nodes=None, data_manager=None):
         """
         Initialize the Pipeline with a list of nodes and a data manager.
         """
-        self.nodes = {node.name: node for node in nodes} if nodes else {}
+        self.nodes = {node.function: node for node in nodes} if nodes else {}
         self.data_manager = data_manager
         self.outputs = {}
 
@@ -132,13 +132,13 @@ class PipelineManager:
                                 raise ValueError(
                                     f"The register function in {pipeline_module_path} must return a Pipeline instance.")
 
-    def run(self, pipeline_order):
+    def run(self, pipeline_orders):
         """
-        Run method to execute pipelines in a specific order.
+        Run method to execute pipelines in multiple orders simultaneously.
 
         Parameters:
         - self: The object instance.
-        - pipeline_order (list): The order in which the pipelines should be executed.
+        - pipeline_orders (list of lists): List of lists where each inner list contains the pipelines to be executed simultaneously.
 
         Returns:
         - results (dict): A dictionary with the results of each pipeline execution.
@@ -147,20 +147,37 @@ class PipelineManager:
         - ValueError: If any of the pipelines in the specified order are not found.
 
         Example usage:
-            pipeline_order = ['pipeline1', 'pipeline2', 'pipeline3']
-            results = obj.run(pipeline_order)
+            pipeline_orders = [['pipeline1', 'pipeline2'], ['pipeline3']]
+            results = obj.run(pipeline_orders)
         """
         results = {}
 
-        missing_pipelines = [pipeline_name for pipeline_name in pipeline_order if pipeline_name not in self.pipelines]
-        if missing_pipelines:
-            error_message = f"Error running pipelines: The following pipelines were not found: {', '.join(missing_pipelines)}"
-            logger.error(error_message)
-            raise ValueError(error_message)
+        with (concurrent.futures.ThreadPoolExecutor() as executor):
+            futures = []
+            for order_idx, pipeline_order in enumerate(pipeline_orders, start=1):
+                missing_pipelines = [pipeline_name for pipeline_name in pipeline_order if pipeline_name not in self.pipelines]
+                if missing_pipelines:
+                    error_message = (f"Error running pipelines in order {order_idx}"
+                                     f": The following pipelines were not found: {', '.join(missing_pipelines)}")
+                    logger.error(error_message)
+                    raise ValueError(error_message)
 
-        for pipeline_name in pipeline_order:
-            pipeline = self.pipelines[pipeline_name]
-            results[pipeline_name] = pipeline.run()
-            logger.info(f"Pipeline '{pipeline_name}' executed successfully.")
-        logger.info("All Pipelines ran successfully.")
+                results.setdefault(order_idx, {})
+                for pipeline_name in pipeline_order:
+                    pipeline = self.pipelines[pipeline_name]
+                    if pipeline_name not in results[order_idx]:
+                        futures.append(executor.submit(pipeline.run))
+
+            for future in concurrent.futures.as_completed(futures):
+                # Get the result of each completed future
+                result = future.result()
+                # Find the corresponding pipeline order
+                for order_idx, pipeline_order in enumerate(pipeline_orders, start=1):
+                    if result in pipeline_order:
+                        pipeline_name = result
+                        results[order_idx][pipeline_name] = result
+                        logger.success(f"Pipeline '{pipeline_name}' in order {order_idx} executed successfully.")
+
+            logger.success(f"All Pipelines ran successfully.")
         return results
+

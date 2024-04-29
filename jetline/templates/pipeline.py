@@ -4,11 +4,16 @@ from __PIPE__ import nodes as func
 
 
 def register(data_manager) -> Pipeline:
+    node1 = Node(
+        function=func.node_function_1,
+        inputs=["Name"],
+        outputs=["Name"],
+        viz={"y": 150, "x": 00, "sources": ['Name']}
+    )
+    node2 = Node(
+        function=func.node_function_2,
+        inputs=["Name"],
+        viz={"y": 300, "x": 00, "sources": ["node_function_1"]}
+    )
 
-    return Pipeline(nodes=[
-        Node(name='node1', function=func.node_function_1, inputs=["Name"], outputs=["Name"]),
-        Node(name='node2', function=func.node_function_2, inputs=["Name"]),
-       
-    ], data_manager=data_manager)
-
-
+    return Pipeline(nodes=[node1, node2], data_manager=data_manager)

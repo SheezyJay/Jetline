@@ -18,9 +18,15 @@
     font-family: inherit;
     background-color: var(--nodes-background);
     cursor: pointer;
-    transition: transform 2s linear, border-color 0.25s; /* Hier wird die Transform-Transition hinzugefügt */
+    width: 180px;
+
+
     color: var(--primary-text-color);
+
+
+
 }
+
 
 .react-flow__node.react-flow__node-default:hover,
 .react-flow__node.react-flow__node-input:hover,
@@ -40,9 +46,9 @@
 
 .react_flow_handle_style {
     background: var(--nodes-background) !important;
-    width: 12px !important;
-    height: 3px !important;
+
     border-radius: 2px !important;
     border: 0.75px solid var(--nodes-border) !important;
   }
+
   

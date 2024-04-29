@@ -9,3 +9,8 @@ class YourDataClass(Data):
             data=choose_file(),
 
         )
+
+    class Meta:
+        description = "This is the description for viz"
+        y = 0
+        x = 0

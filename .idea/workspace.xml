@@ -5,18 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e86839dd-a707-4c82-93bd-21274ddcb2c8" name="Changes" comment="delete unused files">
+      <change afterPath="$PROJECT_DIR$/jetline/commands/create_viz.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/commands/to_exe.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/commands/to_exe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/data/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/data/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder.txt" beforeDir="false" afterPath="$PROJECT_DIR$/builder.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/commands/_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/commands/_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/commands/analyze_project.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/commands/create_pipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/commands/create_pipe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/commands/installer.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/commands/installer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/commands/run_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/commands/run_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/data/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/data/data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/logging.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/logging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/pipeline/node.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/pipeline/node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/pipeline/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/pipeline/pipeline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jetline/templates/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/templates/data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jetline/templates/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/templates/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/templates/nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/templates/nodes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jetline/templates/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/templates/pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/visualization/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/visualization/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/visualization/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/visualization/client/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/src/components/content/InfoSidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/visualization/client/src/components/content/InfoSidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/src/components/pipe/nodes/default.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/visualization/client/src/components/pipe/nodes/default.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/src/components/pipe/nodes/nodes.css" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/visualization/client/src/components/pipe/nodes/nodes.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/src/data/initialElements.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/src/pages/Playground.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/src/pages/pipeline/PipelinePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/visualization/client/src/pages/pipeline/PipelinePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/src/services/PipeService.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/client/src/viz-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jetline/visualization/server/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/visualization/server/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,15 +79,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.PipeService.jsx.executor": "Run",
+    "Python.a.executor": "Run",
+    "Python.analyze_project.executor": "Run",
+    "Python.create_viz.executor": "Run",
+    "Python.data.executor": "Run",
     "Python.exe.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.pipeline.executor": "Run",
     "Python.run_pipeline.executor": "Run",
     "Python.server.executor": "Run",
     "Python.to_exe.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/johanneskanthak/Documents/projects/Invoice Attach Creator WTS/Jetline",
+    "last_opened_file_path": "/Users/johanneskanthak/Documents/projects/Invoice Attach Creator WTS/Jetline/project/pipelines",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -66,6 +104,13 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/project/pipelines" />
+      <recent name="$PROJECT_DIR$/project/visualization/dist" />
+      <recent name="$PROJECT_DIR$/project/visualization/dist/assets" />
+      <recent name="$PROJECT_DIR$/project/visualization" />
+      <recent name="$PROJECT_DIR$/jetline/visualization/server/dist/assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets" />
     </key>
@@ -76,6 +121,29 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration name="create_viz" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Jetline" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/jetline/commands" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/jetline/commands/create_viz.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Jetline" />
       <option name="ENV_FILES" value="" />
@@ -124,6 +192,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.create_viz" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.run_pipeline" />
       </list>
@@ -145,7 +214,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713522493797</updated>
       <workItem from="1713522495086" duration="15518000" />
-      <workItem from="1714063390503" duration="10971000" />
+      <workItem from="1714063390503" duration="55543000" />
     </task>
     <task id="LOCAL-00001" summary="delete unused files">
       <option name="closed" value="true" />
@@ -195,14 +264,24 @@
           <url>file://$PROJECT_DIR$/jetline/data/helper.py</url>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/jetline/visualization/server/server.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Jetline$run_pipeline.coverage" NAME="run_pipeline Coverage Results" MODIFIED="1714202202352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jetline/commands" />
-    <SUITE FILE_PATH="coverage/Jetline$exe.coverage" NAME="exe Coverage Results" MODIFIED="1714206625514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
+    <SUITE FILE_PATH="coverage/Jetline$analyze_project.coverage" NAME="analyze_project Coverage Results" MODIFIED="1714286416395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jetline/commands" />
+    <SUITE FILE_PATH="coverage/Jetline$create_viz.coverage" NAME="create_viz Coverage Results" MODIFIED="1714324367528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jetline/commands" />
     <SUITE FILE_PATH="coverage/Jetline$to_exe.coverage" NAME="to_exe Coverage Results" MODIFIED="1714206734135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jetline/commands" />
-    <SUITE FILE_PATH="coverage/Jetline$main.coverage" NAME="main Coverage Results" MODIFIED="1714203502743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
-    <SUITE FILE_PATH="coverage/Jetline$server.coverage" NAME="server Coverage Results" MODIFIED="1714051787120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jetline/visualization/server" />
+    <SUITE FILE_PATH="coverage/Jetline$exe.coverage" NAME="exe Coverage Results" MODIFIED="1714387480720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
+    <SUITE FILE_PATH="coverage/Jetline$main.coverage" NAME="main Coverage Results" MODIFIED="1714304570861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
+    <SUITE FILE_PATH="coverage/Jetline$a.coverage" NAME="a Coverage Results" MODIFIED="1714324586735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jetline" />
+    <SUITE FILE_PATH="coverage/Jetline$server.coverage" NAME="server Coverage Results" MODIFIED="1714408006646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/visualization" />
+    <SUITE FILE_PATH="coverage/Jetline$pipeline.coverage" NAME="pipeline Coverage Results" MODIFIED="1714304562148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/pipelines/example_pipeline" />
+    <SUITE FILE_PATH="coverage/Jetline$data.coverage" NAME="data Coverage Results" MODIFIED="1714383335901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project" />
   </component>
 </project>

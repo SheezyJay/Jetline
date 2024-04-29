@@ -101,7 +101,7 @@ class DataManager:
                                 data_classes.append(obj)
 
                         for data_class in data_classes:
-                            logger.info(f"Found: {data_class.__name__}, Description: {data_class.__doc__}")
+                            logger.info(f"Found: {data_class.__name__}")
 
                     except Exception as e:
                         logger.error(f"Error loading data classes from file {data_file}: {e}")
@@ -131,9 +131,9 @@ class DataManager:
         """
         if name in self.data:
             self.data[name]['value'] = new_value
-            logger.info(f"Data object '{name}' successfully updated.")
+            logger.success(f"Data object '{name}' successfully updated.")
         else:
-            logger.info(f"Data object '{name}' not found. Cannot be updated.")
+            logger.error(f"Data object '{name}' not found. Cannot be updated.")
 
     def get_jetline_data(self, name):
         """

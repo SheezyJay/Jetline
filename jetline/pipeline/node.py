@@ -1,3 +1,5 @@
+
+
 class Node:
     """
     Node
@@ -15,11 +17,11 @@ class Node:
         Executes the function of the node using input data from the data manager. If outputs are specified, updates the data manager with the results.
 
     """
-    def __init__(self, name, function, inputs, outputs=None):
-        self.name = name
+    def __init__(self, function, inputs, outputs=None, viz=None):
         self.function = function
         self.inputs = inputs
         self.outputs = outputs
+        self.viz = viz
 
     def execute(self, data_manager):
         """

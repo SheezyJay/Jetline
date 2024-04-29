@@ -1,10 +1,8 @@
-import React from 'react';
 import { Handle, Position } from 'reactflow';
 import './nodes.css';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import StorageIcon from '@mui/icons-material/Storage';
 import CodeIcon from '@mui/icons-material/Code';
-import CircularProgress from '@mui/material/CircularProgress'; // Importieren des Ladesymbols
 
 const handleStyle = {
   background: 'var(--nodes-background)',
@@ -14,7 +12,8 @@ const handleStyle = {
   border: '0.75px solid var(--nodes-border)',
 };
 
-function DefaultNode({ data, onNodeClick, running, isLoading }) { 
+function DefaultNode({ data, onNodeClick }) {
+  console.log(data)
   let icon = null;
   let inputHandle = <Handle className="react_flow_dot"  type="target" position={Position.Top} style={handleStyle} />;
   let outputHandle = <Handle className="react_flow_dot" type="source" position={Position.Bottom} style={handleStyle} />;
@@ -27,11 +26,11 @@ function DefaultNode({ data, onNodeClick, running, isLoading }) {
     icon = <FunctionsIcon />;
   }
 
-  if (data.stream && !data.stream.includes('input')) {
+  if (!data.inputs) {
     inputHandle = null;
   }
 
-  if (data.stream && !data.stream.includes('output')) {
+  if (!data.outputs) {
     outputHandle = null;
   }
 
@@ -39,16 +38,17 @@ function DefaultNode({ data, onNodeClick, running, isLoading }) {
     onNodeClick(data);
   };
 
+  const truncatedTitle = data.title.length > 15 ? data.title.substring(0, 15)  : data.title;
+
   return (
     <div
       key={data.id}
-      className="node-default"
       style={{ display: 'flex', alignItems: 'center' }}
       onClick={handleClick}
     >
-       {inputHandle}
+      {inputHandle}
       {icon}
-      <div style={{ marginLeft: '0.5rem' }}>{data.title}</div>
+      <div style={{ marginLeft: '0.5rem' }}>{truncatedTitle}</div>
       {outputHandle}
     </div>
   );
@@ -56,9 +56,7 @@ function DefaultNode({ data, onNodeClick, running, isLoading }) {
 
 // Standardwertzuweisung für onNodeClick, falls nicht übergeben
 DefaultNode.defaultProps = {
-  onNodeClick: () => {}, 
-  running: false, // Standardmäßig ist `running` false
-  isLoading: false, // Standardmäßig ist `isLoading` false
+  onNodeClick: () => {},
 };
 
 export default DefaultNode;
