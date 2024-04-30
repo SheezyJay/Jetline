@@ -5,13 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e86839dd-a707-4c82-93bd-21274ddcb2c8" name="Changes" comment="delete unused files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/commands/create_viz.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/commands/create_viz.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/commands/installer.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/commands/installer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/templates/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/templates/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/templates/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/templates/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/templates/nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/templates/nodes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jetline/templates/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/jetline/templates/pipeline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,6 +84,7 @@
       <recent name="$PROJECT_DIR$/jetline/visualization/server/dist/assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/examples" />
       <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
@@ -193,7 +187,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713522493797</updated>
       <workItem from="1713522495086" duration="15518000" />
-      <workItem from="1714063390503" duration="65198000" />
+      <workItem from="1714063390503" duration="65468000" />
     </task>
     <task id="LOCAL-00001" summary="delete unused files">
       <option name="closed" value="true" />
