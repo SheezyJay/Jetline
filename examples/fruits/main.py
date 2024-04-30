@@ -10,7 +10,7 @@ def run_pipelines():
         #   [["example_pipeline"], ["example_pipeline2"]] to run after
         #   [["example_pipeline", "example_pipeline2"]] to run at the same time
         #   [["example_pipeline", "example_pipeline2"], ["example_pipeline3"]] combination
-        PIPELINE_ORDER = []
+        PIPELINE_ORDER = [['raw']]
 
         pipeline_manager.run(PIPELINE_ORDER)
     except Exception as e:

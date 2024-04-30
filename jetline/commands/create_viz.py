@@ -115,6 +115,7 @@ def extract_nodes_info(folder_path, register_function):
             for node_def in tree.body:
                 if isinstance(node_def, ast.FunctionDef):
                     node_name = node_def.name
+
                     node_description = ast.get_docstring(node_def) or ''
                     node_code = ast.unparse(node_def)
                     nodes_dict[node_name] = {
@@ -134,6 +135,7 @@ def extract_nodes_info(folder_path, register_function):
                     }
 
             for i, func_name in enumerate(function_names):
+
                 node_name = func_name.split('.')[-1]
                 if node_name in nodes_dict:
                     sorted_nodes[i] = nodes_dict[node_name]
@@ -144,6 +146,8 @@ def extract_nodes_info(folder_path, register_function):
                         sorted_nodes[i]["data"]["outputs"] = format_node_parameters(outputs[i])
 
             for i, position_data in enumerate(viz):
+                node_name = function_names[i].split('.')[-1]
+
                 position_dict = eval("{" + position_data + "}")
                 x = position_dict['x']
                 y = position_dict['y']
@@ -227,6 +231,7 @@ def convert_to_numbered_ids(nodes, edges):
 
 
 def main():
+    subprocess.run("lsof -ti:8000 | xargs kill", shell=True)
     nodes = []
     project_name, place_path, current_dir = get_project_infos()
     nodes += extract_classes_with_parent(current_dir)

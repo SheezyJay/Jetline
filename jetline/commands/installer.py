@@ -45,27 +45,6 @@ def installer(project_name, pipeline_name):
 
     shutil.copy(os.path.join(templates_folder, 'data.py'), project_folder)
 
-    example_pipeline_folder = os.path.join(pipeline_folder, 'example_pipeline')
-    os.makedirs(example_pipeline_folder, exist_ok=True)
-
-    init_file_example = os.path.join(example_pipeline_folder, "__init__.py")
-    Path(init_file_example).touch()
-
-    shutil.copy(os.path.join(templates_folder, 'pipeline.py'), example_pipeline_folder)
-
-    def replace_text_in_file(file_path, old_text, new_text):
-        with open(file_path, 'r') as file:
-            file_content = file.read()
-
-        file_content = file_content.replace(old_text, new_text)
-
-        with open(file_path, 'w') as file:
-            file.write(file_content)
-
-    replace_text_in_file(os.path.join(example_pipeline_folder, 'pipeline.py'), '__PIPE__', 'example_pipeline')
-
-    shutil.copy(os.path.join(templates_folder, 'nodes.py'), example_pipeline_folder)
-
     click.echo(
         click.style("✅ Project setup complete at ", fg='green', bold=True) + click.style(project_folder, fg='white'))
 

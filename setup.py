@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='jetline',
-    version='0.1.46',
+    version='0.1.49',
     description='Automated Pipeline Builder',
     url='https://github.com/your_username/jetline',
     author='Johannes Kanthak',

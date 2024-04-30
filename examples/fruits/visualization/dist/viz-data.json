@@ -1,0 +1,73 @@
+{
+    "nodes": [
+        {
+            "id": "1",
+            "data": {
+                "title": "Fruits",
+                "type": "data",
+                "description": "This is the Fruit Data Class",
+                "outputs": "Fruits",
+                "inputs": null,
+                "code": "class Fruits(Data):\n\n    def __init__(self):\n        super().__init__(name='Fruits', data=self.__getter__())\n\n    def __getter__(self):\n        return ['banana', 'apple', 'mango']\n\n\n    class Meta:\n        description = 'This is the Fruit Data Class'\n        y = 0\n        x = 0\n"
+            },
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        {
+            "id": "2",
+            "data": {
+                "title": "validate",
+                "description": "",
+                "type": "function",
+                "code": "def validate(fruits):\n    if 'apple' in fruits:\n        fruits.remove('apple')\n    return fruits",
+                "inputs": [
+                    "Fruits"
+                ],
+                "outputs": [
+                    "Fruits"
+                ]
+            },
+            "position": {
+                "x": 0,
+                "y": 150
+            }
+        },
+        {
+            "id": "3",
+            "data": {
+                "title": "export",
+                "description": "",
+                "type": "function",
+                "code": "def export(fruits):\n    with open('fruits.txt', 'w') as file:\n        for fruit in fruits:\n            file.write(fruit + '\\n')",
+                "inputs": [
+                    "Fruits"
+                ],
+                "outputs": ""
+            },
+            "position": {
+                "x": 0,
+                "y": 300
+            }
+        }
+    ],
+    "edges": [
+        {
+            "id": "Fruits->validate",
+            "source": "1",
+            "target": "2",
+            "animated": true,
+            "type": "default",
+            "style": "edgeStyle"
+        },
+        {
+            "id": "validate->export",
+            "source": "2",
+            "target": "3",
+            "animated": true,
+            "type": "default",
+            "style": "edgeStyle"
+        }
+    ]
+}
