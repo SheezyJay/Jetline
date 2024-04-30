@@ -231,7 +231,6 @@ def convert_to_numbered_ids(nodes, edges):
 
 
 def main():
-    subprocess.run("lsof -ti:8000 | xargs kill", shell=True)
     nodes = []
     project_name, place_path, current_dir = get_project_infos()
     nodes += extract_classes_with_parent(current_dir)

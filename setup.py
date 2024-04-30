@@ -1,5 +1,8 @@
 from setuptools import setup, find_packages
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 setup(
     name='jetline',
     version='1.0.0',
@@ -24,16 +27,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
 
-    install_requires=[
-        'click==8.1.7',
-        'colorama==0.4.6',
-        'toml==0.10.2',
-        'pandas==2.2.0',
-        'openpyxl==3.1.2',
-        'coloredlogs==15.0.1',
-        'fastapi==0.110.0',
-        'vulture'
-    ],
+    install_requires= requirements,
     entry_points={
         'console_scripts': [
             'jetline = jetline.commands.info:main',

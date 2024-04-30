@@ -10,3 +10,4 @@ vulture~=2.11
 astor~=0.8.1
 setuptools~=69.5.1
 flaskwebgui~=1.1.1
+uvicorn~=0.29.0
